@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CLMS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_FileUploadDetails">
+    <Key>
+      <PropertyRef Name="FileUploadID" />
+    </Key>
+    <Property Name="FileUploadID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" />
+    <Property Name="TestReportID" Type="uniqueidentifier" />
+    <Property Name="TestDate" Type="datetime" />
+    <Property Name="TestType" Type="nvarchar" MaxLength="50" />
+    <Property Name="TestName" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="50" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="FileName" Type="nvarchar(max)" />
+    <Property Name="FileDispalyName" Type="nvarchar(max)" />
+    <Property Name="FilePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_PatientDetails">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email_ID" Type="nvarchar(max)" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="AlternetMobNo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="PinCode" Type="nvarchar" MaxLength="10" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+    <Property Name="Address_1" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address_2" Type="nvarchar" MaxLength="150" />
+    <Property Name="Address_3" Type="nvarchar" MaxLength="150" />
+  </EntityType>
+  <EntityType Name="tbl_VitalSingsDetails">
+    <Key>
+      <PropertyRef Name="TestReportID" />
+    </Key>
+    <Property Name="TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="BP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Temperature" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Pluse" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_VitalSingsDetails_History">
+    <Key>
+      <PropertyRef Name="TestReport_HistoryID" />
+    </Key>
+    <Property Name="TestReport_HistoryID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="BP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Temperature" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Pluse" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityContainer Name="CLMS_DBModelStoreContainer">
+    <EntitySet Name="tbl_FileUploadDetails" EntityType="Self.tbl_FileUploadDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>

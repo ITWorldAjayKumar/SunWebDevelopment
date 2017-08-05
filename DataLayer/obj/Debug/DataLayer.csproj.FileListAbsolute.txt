@@ -1,0 +1,12 @@
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\DataLayer.dll.config
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\DataLayer.dll
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\DataLayer.pdb
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\EntityFramework.dll
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\EntityFramework.xml
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\CLMS_App - Copy\DataLayer\obj\Debug\DataLayer.dll
+E:\Projects\CLMS_App - Copy\DataLayer\obj\Debug\DataLayer.pdb
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\DataContract.dll
+E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\DataContract.pdb
+E:\Projects\CLMS_App - Copy\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache

@@ -1,0 +1,54 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.5.1.min.js"></script>
+    <link href="http://cdn.oesmith.co.uk/morris-0.5.1.css" rel="stylesheet" />
+    <meta charset=utf-8 />
+    <title>Morris.js Line Chart Example</title>
+    <style>
+        #line-chart {
+            height: 400px;
+        }
+    </style>
+    <script type="text/javascript">
+        /*
+         * Play with this code and it'll update in the panel opposite.
+         *
+         * Why not try some of the options above?
+         */
+        $(document).ready(function () {
+            Morris.Line({
+                element: 'chart',
+                data: [{ TestDate: '2017-7-13', BP: 98, W: 52 }, { TestDate: '2017-7-17', BP: 99, W: 50 }, { TestDate: '2017-7-22', BP: 100, W: 49 }, { TestDate: '2017-7-27', BP: 97, W: 53 }],
+                xkey: 'TestDate',
+                xLabels: 'day',
+                xLabelAngle: 45,
+                ykeys: ['BP', 'W'],
+                labels: ['Blood Presure ', 'Weight'],
+                xLabelFormat: function (d) {
+                    var weekdays = new Array(7);
+                    weekdays[0] = "SUN";
+                    weekdays[1] = "MON";
+                    weekdays[2] = "TUE";
+                    weekdays[3] = "WED";
+                    weekdays[4] = "THU";
+                    weekdays[5] = "FRI";
+                    weekdays[6] = "SAT";
+
+                    return weekdays[d.getDay()] + '-' +
+                           ("0" + (d.getMonth() + 1)).slice(-2) + '-' +
+                           ("0" + (d.getDate())).slice(-2);
+                },
+                    resize: true
+            });
+            config.element = 'chart';
+            Morris.Line(config);
+        });
+    </script>
+</head>
+<body>
+    <div id="chart"></div>
+</body>
+</html>

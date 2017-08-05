@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CLMS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="tbl_FileUploadDetails">
+          <Key>
+            <PropertyRef Name="FileUploadID" />
+          </Key>
+          <Property Name="FileUploadID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientID" Type="uniqueidentifier" />
+          <Property Name="TestReportID" Type="uniqueidentifier" />
+          <Property Name="TestDate" Type="datetime" />
+          <Property Name="TestType" Type="nvarchar" MaxLength="50" />
+          <Property Name="TestName" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="EditedBy" Type="nvarchar" MaxLength="50" />
+          <Property Name="EditedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="FileName" Type="nvarchar(max)" />
+          <Property Name="FileDispalyName" Type="nvarchar(max)" />
+          <Property Name="FilePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tbl_PatientDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientID" Type="nvarchar" MaxLength="50" />
+          <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email_ID" Type="nvarchar(max)" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="AlternetMobNo" Type="nvarchar" MaxLength="50" />
+          <Property Name="Age" Type="int" Nullable="false" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="PinCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Address" Type="nvarchar(max)" />
+          <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="EditedDate" Type="datetime" />
+          <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="Address_1" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address_2" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address_3" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="tbl_VitalSingsDetails">
+          <Key>
+            <PropertyRef Name="TestReportID" />
+          </Key>
+          <Property Name="TestReportID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TestDate" Type="datetime" Nullable="false" />
+          <Property Name="BP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Temperature" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Pluse" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+          <Property Name="EditedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityType Name="tbl_VitalSingsDetails_History">
+          <Key>
+            <PropertyRef Name="TestReport_HistoryID" />
+          </Key>
+          <Property Name="TestReport_HistoryID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TestReportID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="BP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Temperature" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Pluse" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+          <Property Name="EditedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
+        <EntityContainer Name="CLMS_DBModelStoreContainer">
+          <EntitySet Name="tbl_FileUploadDetails" EntityType="Self.tbl_FileUploadDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CLMS_DBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tbl_FileUploadDetails">
+          <Key>
+            <PropertyRef Name="FileUploadID" />
+          </Key>
+          <Property Name="FileUploadID" Type="Guid" Nullable="false" />
+          <Property Name="PatientID" Type="Guid" />
+          <Property Name="TestDate" Type="DateTime" Precision="3" />
+          <Property Name="TestType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="TestName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EditedBy" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="EditedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="TestReportID" Type="Guid" />
+          <Property Name="FileName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FileDispalyName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FilePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_PatientDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Guid" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Mobile" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Age" Type="Int32" Nullable="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Occupation" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="EditedDate" Type="DateTime" Precision="3" />
+          <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="PatientID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email_ID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AlternetMobNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="PinCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Address_1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address_2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="Address_3" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="tbl_VitalSingsDetails">
+          <Key>
+            <PropertyRef Name="TestReportID" />
+          </Key>
+          <Property Name="TestReportID" Type="Guid" Nullable="false" />
+          <Property Name="PatientID" Type="Guid" Nullable="false" />
+          <Property Name="BP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Temperature" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Pluse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EditedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="tbl_VitalSingsDetails_History">
+          <Key>
+            <PropertyRef Name="TestReport_HistoryID" />
+          </Key>
+          <Property Name="TestReport_HistoryID" Type="Guid" Nullable="false" />
+          <Property Name="TestReportID" Type="Guid" Nullable="false" />
+          <Property Name="PatientID" Type="Guid" Nullable="false" />
+          <Property Name="BP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Temperature" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Pluse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EditedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityContainer Name="CLMS_DBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tbl_FileUploadDetails" EntityType="Self.tbl_FileUploadDetails" />
+          <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" />
+          <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" />
+          <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CLMS_DBModelStoreContainer" CdmEntityContainer="CLMS_DBEntities">
+          <EntitySetMapping Name="tbl_FileUploadDetails">
+            <EntityTypeMapping TypeName="CLMS_DBModel.tbl_FileUploadDetails">
+              <MappingFragment StoreEntitySet="tbl_FileUploadDetails">
+                <ScalarProperty Name="FilePath" ColumnName="FilePath" />
+                <ScalarProperty Name="FileDispalyName" ColumnName="FileDispalyName" />
+                <ScalarProperty Name="FileName" ColumnName="FileName" />
+                <ScalarProperty Name="TestReportID" ColumnName="TestReportID" />
+                <ScalarProperty Name="FileUploadID" ColumnName="FileUploadID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="TestType" ColumnName="TestType" />
+                <ScalarProperty Name="TestName" ColumnName="TestName" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_PatientDetails">
+            <EntityTypeMapping TypeName="CLMS_DBModel.tbl_PatientDetails">
+              <MappingFragment StoreEntitySet="tbl_PatientDetails">
+                <ScalarProperty Name="Address_3" ColumnName="Address_3" />
+                <ScalarProperty Name="Address_2" ColumnName="Address_2" />
+                <ScalarProperty Name="Address_1" ColumnName="Address_1" />
+                <ScalarProperty Name="PinCode" ColumnName="PinCode" />
+                <ScalarProperty Name="AlternetMobNo" ColumnName="AlternetMobNo" />
+                <ScalarProperty Name="Email_ID" ColumnName="Email_ID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_VitalSingsDetails">
+            <EntityTypeMapping TypeName="CLMS_DBModel.tbl_VitalSingsDetails">
+              <MappingFragment StoreEntitySet="tbl_VitalSingsDetails">
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="TestReportID" ColumnName="TestReportID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="BP" ColumnName="BP" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="Pluse" ColumnName="Pluse" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_VitalSingsDetails_History">
+            <EntityTypeMapping TypeName="CLMS_DBModel.tbl_VitalSingsDetails_History">
+              <MappingFragment StoreEntitySet="tbl_VitalSingsDetails_History">
+                <ScalarProperty Name="TestReport_HistoryID" ColumnName="TestReport_HistoryID" />
+                <ScalarProperty Name="TestReportID" ColumnName="TestReportID" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="BP" ColumnName="BP" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Temperature" ColumnName="Temperature" />
+                <ScalarProperty Name="Pluse" ColumnName="Pluse" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,81 @@
+E:\Projects\CLMS_App\CLMS_App\bin\ApplicationInsights.config
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\csc.exe
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\vbc.exe
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\VBCSCompiler.exe
+E:\Projects\CLMS_App\CLMS_App\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects\CLMS_App\CLMS_App\bin\CLMS_App.dll.config
+E:\Projects\CLMS_App\CLMS_App\bin\CLMS_App.dll
+E:\Projects\CLMS_App\CLMS_App\bin\CLMS_App.pdb
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AI.DependencyCollector.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AI.ServerTelemetryChannel.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AI.Web.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AI.WindowsServer.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.ApplicationInsights.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
+E:\Projects\CLMS_App\CLMS_App\bin\System.Web.Optimization.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Antlr3.Runtime.pdb
+E:\Projects\CLMS_App\CLMS_App\bin\Newtonsoft.Json.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AspNet.FriendlyUrls.xml
+E:\Projects\CLMS_App\CLMS_App\bin\EntityFramework.xml
+E:\Projects\CLMS_App\CLMS_App\bin\EntityFramework.SqlServer.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AspNet.Identity.Core.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AspNet.Identity.Owin.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.AspNet.Identity.EntityFramework.xml
+E:\Projects\CLMS_App\CLMS_App\bin\System.Web.Providers.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Host.SystemWeb.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Security.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Security.Facebook.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Security.Cookies.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Security.Google.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Security.Twitter.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+E:\Projects\CLMS_App\CLMS_App\bin\Microsoft.Owin.Security.OAuth.xml
+E:\Projects\CLMS_App\CLMS_App\obj\Debug\CLMS_App.csprojResolveAssemblyReference.cache
+E:\Projects\CLMS_App\CLMS_App\obj\Debug\CLMS_App.dll
+E:\Projects\CLMS_App\CLMS_App\obj\Debug\CLMS_App.pdb
+E:\Projects\CLMS_App\CLMS_App\bin\System.Net.Http.Formatting.dll
+E:\Projects\CLMS_App\CLMS_App\bin\System.Web.Http.dll
+E:\Projects\CLMS_App\CLMS_App\bin\System.Web.Http.WebHost.dll
+E:\Projects\CLMS_App\CLMS_App\bin\System.Net.Http.Formatting.xml
+E:\Projects\CLMS_App\CLMS_App\bin\System.Web.Http.xml
+E:\Projects\CLMS_App\CLMS_App\bin\System.Web.Http.WebHost.xml
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\ApplicationInsights.config
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\csc.exe
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\Microsoft.CodeAnalysis.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\Microsoft.CSharp.Core.targets
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\Microsoft.VisualBasic.Core.targets
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\System.Collections.Immutable.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\System.Reflection.Metadata.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\vbc.exe
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\VBCSCompiler.exe
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\roslyn\VBCSCompiler.exe.config
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\CLMS_App.dll.config
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\CLMS_App.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\CLMS_App.pdb
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\System.Net.Http.Formatting.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\System.Web.Http.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\System.Web.Http.WebHost.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\System.Net.Http.Formatting.xml
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\System.Web.Http.xml
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\System.Web.Http.WebHost.xml
+E:\Projects\CLMS_App - Copy\CLMS_App\obj\Debug\CLMS_App.csprojResolveAssemblyReference.cache
+E:\Projects\CLMS_App - Copy\CLMS_App\obj\Debug\CLMS_App.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\obj\Debug\CLMS_App.pdb
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\DataLayer.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\DataLayer.pdb
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\DataContract.dll
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\DataContract.pdb
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\App_Code\BootstrapAlert.cs
+E:\Projects\CLMS_App - Copy\CLMS_App\bin\AjaxControlToolkit.dll
