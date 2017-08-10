@@ -190,10 +190,34 @@
                             <a href="javascript:;" data-toggle="collapse" data-target="#Reports"><i class="fa fa-fw fa-wheelchair"></i>Reports <i class="fa fa-fw fa-caret-down"></i></a>
                             <ul id="Reports" class="collapse">
                                 <li>
-                                    <a href="../Patient/Report_PatientMgmt.aspx">By Patient</a>
+                                    <a href="../Patient/Report_PatientMgmt.aspx">Vital Sign</a>
                                 </li>
                                 <li>
-                                    <a href="../Patient/ReportsMgmt.aspx">By Patients</a>
+                                    <a href="../Patient/ReportsMgmt.aspx">Diabetes</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/Report_PatientMgmt.aspx">Kidney Function</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/ReportsMgmt.aspx">Liver Function</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/Report_PatientMgmt.aspx">Lipd Profile</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/ReportsMgmt.aspx">Thyroid Profile</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/Report_PatientMgmt.aspx">Blood Count</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/ReportsMgmt.aspx">Elec</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/Report_PatientMgmt.aspx">Bone Profile</a>
+                                </li>
+                                <li>
+                                    <a href="../Patient/ReportsMgmt.aspx">Urine</a>
                                 </li>
                             </ul>
                         </li>

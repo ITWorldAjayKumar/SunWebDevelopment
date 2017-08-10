@@ -9,6 +9,17 @@
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_PatientDetails" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_VitalSingsDetails" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_VitalSingsDetails_History" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_BloodCountReports" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_BoneProfileReports" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_DiabetesReports" Width="1.5" PointX="7.75" PointY="5.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_ElectrolytesReports" Width="1.5" PointX="9.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_KidneyFunctionsReports" Width="1.5" PointX="2.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_LipidProfileReports" Width="1.5" PointX="9.75" PointY="4.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_LiverFunctionReports" Width="1.5" PointX="4.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_ThyroidProfileReports" Width="1.5" PointX="6.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_UrineReports" Width="1.5" PointX="8.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_VitalSingsReports" Width="1.5" PointX="10.75" PointY="9.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" Width="1.5" PointX="11.75" PointY="0.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

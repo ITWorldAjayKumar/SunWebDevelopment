@@ -82,5 +82,213 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BloodCountReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_BloodCountReports">
+        <MappingFragment StoreEntitySet="tbl_BloodCountReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ESR" ColumnName="ESR" />
+          <ScalarProperty Name="Basophils" ColumnName="Basophils" />
+          <ScalarProperty Name="Monocytes" ColumnName="Monocytes" />
+          <ScalarProperty Name="Eosinophil" ColumnName="Eosinophil" />
+          <ScalarProperty Name="Lymphocytes" ColumnName="Lymphocytes" />
+          <ScalarProperty Name="Neutrophils" ColumnName="Neutrophils" />
+          <ScalarProperty Name="MCV" ColumnName="MCV" />
+          <ScalarProperty Name="PLATELET" ColumnName="PLATELET" />
+          <ScalarProperty Name="WBC" ColumnName="WBC" />
+          <ScalarProperty Name="CBC" ColumnName="CBC" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="BCR_TestReportID" ColumnName="BCR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_BoneProfileReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_BoneProfileReports">
+        <MappingFragment StoreEntitySet="tbl_BoneProfileReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Magnesium" ColumnName="Magnesium" />
+          <ScalarProperty Name="Calcium" ColumnName="Calcium" />
+          <ScalarProperty Name="ParathyroidHormone" ColumnName="ParathyroidHormone" />
+          <ScalarProperty Name="VitaminD" ColumnName="VitaminD" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="BPR_TestReportID" ColumnName="BPR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_DiabetesReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_DiabetesReports">
+        <MappingFragment StoreEntitySet="tbl_DiabetesReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="HBAIC" ColumnName="HBAIC" />
+          <ScalarProperty Name="PPBS" ColumnName="PPBS" />
+          <ScalarProperty Name="FBS" ColumnName="FBS" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="DIR_TestReportID" ColumnName="DIR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ElectrolytesReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_ElectrolytesReports">
+        <MappingFragment StoreEntitySet="tbl_ElectrolytesReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Chloride" ColumnName="Chloride" />
+          <ScalarProperty Name="Potassium" ColumnName="Potassium" />
+          <ScalarProperty Name="Sodium" ColumnName="Sodium" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="ER_TestReportID" ColumnName="ER_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_KidneyFunctionsReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_KidneyFunctionsReports">
+        <MappingFragment StoreEntitySet="tbl_KidneyFunctionsReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="SUricAcid" ColumnName="SUricAcid" />
+          <ScalarProperty Name="Bun" ColumnName="Bun" />
+          <ScalarProperty Name="Urea" ColumnName="Urea" />
+          <ScalarProperty Name="UrineACR" ColumnName="UrineACR" />
+          <ScalarProperty Name="SCreatinine" ColumnName="SCreatinine" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="KFR_TestReportID" ColumnName="KFR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LipidProfileReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_LipidProfileReports">
+        <MappingFragment StoreEntitySet="tbl_LipidProfileReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="LDLHDLRatio" ColumnName="LDLHDLRatio" />
+          <ScalarProperty Name="TCholHDL" ColumnName="TCholHDL" />
+          <ScalarProperty Name="LDLChol" ColumnName="LDLChol" />
+          <ScalarProperty Name="HDLChol" ColumnName="HDLChol" />
+          <ScalarProperty Name="Triglycerides" ColumnName="Triglycerides" />
+          <ScalarProperty Name="TChol" ColumnName="TChol" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="LPR_TestReportID" ColumnName="LPR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_LiverFunctionReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_LiverFunctionReports">
+        <MappingFragment StoreEntitySet="tbl_LiverFunctionReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="AGRatio" ColumnName="AGRatio" />
+          <ScalarProperty Name="Globulin" ColumnName="Globulin" />
+          <ScalarProperty Name="Albumin" ColumnName="Albumin" />
+          <ScalarProperty Name="SProtein" ColumnName="SProtein" />
+          <ScalarProperty Name="SAlkPhosphate" ColumnName="SAlkPhosphate" />
+          <ScalarProperty Name="GGT" ColumnName="GGT" />
+          <ScalarProperty Name="SGPT" ColumnName="SGPT" />
+          <ScalarProperty Name="SGOT" ColumnName="SGOT" />
+          <ScalarProperty Name="SBilirubin" ColumnName="SBilirubin" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="LFR_TestReportID" ColumnName="LFR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_ThyroidProfileReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_ThyroidProfileReports">
+        <MappingFragment StoreEntitySet="tbl_ThyroidProfileReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="TSH" ColumnName="TSH" />
+          <ScalarProperty Name="FreeT4" ColumnName="FreeT4" />
+          <ScalarProperty Name="FreeT3" ColumnName="FreeT3" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="TPR_TestReportID" ColumnName="TPR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_UrineReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_UrineReports">
+        <MappingFragment StoreEntitySet="tbl_UrineReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="ACR" ColumnName="ACR" />
+          <ScalarProperty Name="Creatine" ColumnName="Creatine" />
+          <ScalarProperty Name="Albumin" ColumnName="Albumin" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="UR_TestReportID" ColumnName="UR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_VitalSingsReports">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_VitalSingsReports">
+        <MappingFragment StoreEntitySet="tbl_VitalSingsReports">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="Pulse" ColumnName="Pulse" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="DBP" ColumnName="DBP" />
+          <ScalarProperty Name="SBP" ColumnName="SBP" />
+          <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+          <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+          <ScalarProperty Name="VSR_TestReportID" ColumnName="VSR_TestReportID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbl_PatientDetails_3Aug2017">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_PatientDetails_3Aug2017">
+        <MappingFragment StoreEntitySet="tbl_PatientDetails_3Aug2017">
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+          <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+          <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

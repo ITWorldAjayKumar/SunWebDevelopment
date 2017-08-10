@@ -70,16 +70,49 @@
     <Compile Include="DL_FileUploadDetails.cs" />
     <Compile Include="DL_VitalDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="tbl_BloodCountReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_BoneProfileReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_DiabetesReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ElectrolytesReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbl_FileUploadDetails.cs">
       <DependentUpon>CLMS.tt</DependentUpon>
     </Compile>
+    <Compile Include="tbl_KidneyFunctionsReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_LipidProfileReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_LiverFunctionReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
     <Compile Include="tbl_PatientDetails.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_PatientDetails_3Aug2017.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_ThyroidProfileReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_UrineReports.cs">
       <DependentUpon>CLMS.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_VitalSingsDetails.cs">
       <DependentUpon>CLMS.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_VitalSingsDetails_History.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_VitalSingsReports.cs">
       <DependentUpon>CLMS.tt</DependentUpon>
     </Compile>
   </ItemGroup>

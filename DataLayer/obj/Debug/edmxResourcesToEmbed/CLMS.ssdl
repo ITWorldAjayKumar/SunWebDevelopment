@@ -1,5 +1,77 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Schema Namespace="CLMS_DBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tbl_BloodCountReports">
+    <Key>
+      <PropertyRef Name="BCR_TestReportID" />
+    </Key>
+    <Property Name="BCR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="CBC" Type="nvarchar" MaxLength="50" />
+    <Property Name="WBC" Type="nvarchar" MaxLength="50" />
+    <Property Name="PLATELET" Type="nvarchar" MaxLength="50" />
+    <Property Name="MCV" Type="nvarchar" MaxLength="50" />
+    <Property Name="Neutrophils" Type="nvarchar" MaxLength="50" />
+    <Property Name="Lymphocytes" Type="nvarchar" MaxLength="50" />
+    <Property Name="Eosinophil" Type="nvarchar" MaxLength="50" />
+    <Property Name="Monocytes" Type="nvarchar" MaxLength="50" />
+    <Property Name="Basophils" Type="nvarchar" MaxLength="50" />
+    <Property Name="ESR" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_BoneProfileReports">
+    <Key>
+      <PropertyRef Name="BPR_TestReportID" />
+    </Key>
+    <Property Name="BPR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="VitaminD" Type="nvarchar" MaxLength="50" />
+    <Property Name="ParathyroidHormone" Type="nvarchar" MaxLength="50" />
+    <Property Name="Calcium" Type="nvarchar" MaxLength="50" />
+    <Property Name="Magnesium" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_DiabetesReports">
+    <Key>
+      <PropertyRef Name="DIR_TestReportID" />
+    </Key>
+    <Property Name="DIR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="FBS" Type="nvarchar" MaxLength="50" />
+    <Property Name="PPBS" Type="nvarchar" MaxLength="50" />
+    <Property Name="HBAIC" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_ElectrolytesReports">
+    <Key>
+      <PropertyRef Name="ER_TestReportID" />
+    </Key>
+    <Property Name="ER_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="Sodium" Type="nvarchar" MaxLength="50" />
+    <Property Name="Potassium" Type="nvarchar" MaxLength="50" />
+    <Property Name="Chloride" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
   <EntityType Name="tbl_FileUploadDetails">
     <Key>
       <PropertyRef Name="FileUploadID" />
@@ -18,6 +90,65 @@
     <Property Name="FileName" Type="nvarchar(max)" />
     <Property Name="FileDispalyName" Type="nvarchar(max)" />
     <Property Name="FilePath" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="tbl_KidneyFunctionsReports">
+    <Key>
+      <PropertyRef Name="KFR_TestReportID" />
+    </Key>
+    <Property Name="KFR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="SCreatinine" Type="nvarchar" MaxLength="50" />
+    <Property Name="UrineACR" Type="nvarchar" MaxLength="50" />
+    <Property Name="Urea" Type="nvarchar" MaxLength="50" />
+    <Property Name="Bun" Type="nvarchar" MaxLength="50" />
+    <Property Name="SUricAcid" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_LipidProfileReports">
+    <Key>
+      <PropertyRef Name="LPR_TestReportID" />
+    </Key>
+    <Property Name="LPR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="TChol" Type="nvarchar" MaxLength="50" />
+    <Property Name="Triglycerides" Type="nvarchar" MaxLength="50" />
+    <Property Name="HDLChol" Type="nvarchar" MaxLength="50" />
+    <Property Name="LDLChol" Type="nvarchar" MaxLength="50" />
+    <Property Name="TCholHDL" Type="nvarchar" MaxLength="50" />
+    <Property Name="LDLHDLRatio" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_LiverFunctionReports">
+    <Key>
+      <PropertyRef Name="LFR_TestReportID" />
+    </Key>
+    <Property Name="LFR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="SBilirubin" Type="nvarchar" MaxLength="50" />
+    <Property Name="SGOT" Type="nvarchar" MaxLength="50" />
+    <Property Name="SGPT" Type="nvarchar" MaxLength="50" />
+    <Property Name="GGT" Type="nvarchar" MaxLength="50" />
+    <Property Name="SAlkPhosphate" Type="nvarchar" MaxLength="50" />
+    <Property Name="SProtein" Type="nvarchar" MaxLength="50" />
+    <Property Name="Albumin" Type="nvarchar" MaxLength="50" />
+    <Property Name="Globulin" Type="nvarchar" MaxLength="50" />
+    <Property Name="AGRatio" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
   </EntityType>
   <EntityType Name="tbl_PatientDetails">
     <Key>
@@ -43,6 +174,63 @@
     <Property Name="Address_2" Type="nvarchar" MaxLength="150" />
     <Property Name="Address_3" Type="nvarchar" MaxLength="150" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="tbl_PatientDetails_3Aug2017">
+    <Key>
+      <PropertyRef Name="ID" />
+      <PropertyRef Name="Name" />
+      <PropertyRef Name="Mobile" />
+      <PropertyRef Name="Age" />
+      <PropertyRef Name="CreatedDate" />
+      <PropertyRef Name="CreatedBy" />
+      <PropertyRef Name="IsActive" />
+    </Key>
+    <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Mobile" Type="nvarchar" MaxLength="20" Nullable="false" />
+    <Property Name="Age" Type="int" Nullable="false" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar(max)" />
+    <Property Name="Occupation" Type="nvarchar" MaxLength="100" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="150" />
+    <Property Name="IsActive" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_ThyroidProfileReports">
+    <Key>
+      <PropertyRef Name="TPR_TestReportID" />
+    </Key>
+    <Property Name="TPR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="FreeT3" Type="nvarchar" MaxLength="50" />
+    <Property Name="FreeT4" Type="nvarchar" MaxLength="50" />
+    <Property Name="TSH" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
+  <EntityType Name="tbl_UrineReports">
+    <Key>
+      <PropertyRef Name="UR_TestReportID" />
+    </Key>
+    <Property Name="UR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="Albumin" Type="nvarchar" MaxLength="50" />
+    <Property Name="Creatine" Type="nvarchar" MaxLength="50" />
+    <Property Name="ACR" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
   <EntityType Name="tbl_VitalSingsDetails">
     <Key>
       <PropertyRef Name="TestReportID" />
@@ -60,6 +248,8 @@
     <Property Name="EditedDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tbl_VitalSingsDetails_History">
     <Key>
       <PropertyRef Name="TestReport_HistoryID" />
@@ -77,10 +267,53 @@
     <Property Name="EditedDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
+  <EntityType Name="tbl_VitalSingsReports">
+    <Key>
+      <PropertyRef Name="VSR_TestReportID" />
+    </Key>
+    <Property Name="VSR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="SBP" Type="nvarchar" MaxLength="50" />
+    <Property Name="DBP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Pulse" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
   <EntityContainer Name="CLMS_DBModelStoreContainer">
+    <EntitySet Name="tbl_BloodCountReports" EntityType="Self.tbl_BloodCountReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_BoneProfileReports" EntityType="Self.tbl_BoneProfileReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_DiabetesReports" EntityType="Self.tbl_DiabetesReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ElectrolytesReports" EntityType="Self.tbl_ElectrolytesReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_FileUploadDetails" EntityType="Self.tbl_FileUploadDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_KidneyFunctionsReports" EntityType="Self.tbl_KidneyFunctionsReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_LipidProfileReports" EntityType="Self.tbl_LipidProfileReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_LiverFunctionReports" EntityType="Self.tbl_LiverFunctionReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_ThyroidProfileReports" EntityType="Self.tbl_ThyroidProfileReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UrineReports" EntityType="Self.tbl_UrineReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_VitalSingsReports" EntityType="Self.tbl_VitalSingsReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="Self.tbl_PatientDetails_3Aug2017" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [tbl_PatientDetails_3Aug2017].[ID] AS [ID], 
+    [tbl_PatientDetails_3Aug2017].[Name] AS [Name], 
+    [tbl_PatientDetails_3Aug2017].[Mobile] AS [Mobile], 
+    [tbl_PatientDetails_3Aug2017].[Age] AS [Age], 
+    [tbl_PatientDetails_3Aug2017].[Gender] AS [Gender], 
+    [tbl_PatientDetails_3Aug2017].[Address] AS [Address], 
+    [tbl_PatientDetails_3Aug2017].[Occupation] AS [Occupation], 
+    [tbl_PatientDetails_3Aug2017].[CreatedDate] AS [CreatedDate], 
+    [tbl_PatientDetails_3Aug2017].[CreatedBy] AS [CreatedBy], 
+    [tbl_PatientDetails_3Aug2017].[EditedDate] AS [EditedDate], 
+    [tbl_PatientDetails_3Aug2017].[EditedBy] AS [EditedBy], 
+    [tbl_PatientDetails_3Aug2017].[IsActive] AS [IsActive]
+    FROM [dbo].[tbl_PatientDetails_3Aug2017] AS [tbl_PatientDetails_3Aug2017]</DefiningQuery>
+    </EntitySet>
   </EntityContainer>
 </Schema>

@@ -29,5 +29,16 @@ namespace DataLayer
         public virtual DbSet<tbl_PatientDetails> tbl_PatientDetails { get; set; }
         public virtual DbSet<tbl_VitalSingsDetails> tbl_VitalSingsDetails { get; set; }
         public virtual DbSet<tbl_VitalSingsDetails_History> tbl_VitalSingsDetails_History { get; set; }
+        public virtual DbSet<tbl_BloodCountReports> tbl_BloodCountReports { get; set; }
+        public virtual DbSet<tbl_BoneProfileReports> tbl_BoneProfileReports { get; set; }
+        public virtual DbSet<tbl_DiabetesReports> tbl_DiabetesReports { get; set; }
+        public virtual DbSet<tbl_ElectrolytesReports> tbl_ElectrolytesReports { get; set; }
+        public virtual DbSet<tbl_KidneyFunctionsReports> tbl_KidneyFunctionsReports { get; set; }
+        public virtual DbSet<tbl_LipidProfileReports> tbl_LipidProfileReports { get; set; }
+        public virtual DbSet<tbl_LiverFunctionReports> tbl_LiverFunctionReports { get; set; }
+        public virtual DbSet<tbl_ThyroidProfileReports> tbl_ThyroidProfileReports { get; set; }
+        public virtual DbSet<tbl_UrineReports> tbl_UrineReports { get; set; }
+        public virtual DbSet<tbl_VitalSingsReports> tbl_VitalSingsReports { get; set; }
+        public virtual DbSet<tbl_PatientDetails_3Aug2017> tbl_PatientDetails_3Aug2017 { get; set; }
     }
 }

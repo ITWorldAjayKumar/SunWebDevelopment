@@ -41,6 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DC_VitalSingsReports.cs" />
+    <Compile Include="DC_UrineReports.cs" />
+    <Compile Include="DC_ThyroidProfileReports.cs" />
+    <Compile Include="DC_LiverFunctionReports.cs" />
+    <Compile Include="DC_LipidProfileReports.cs" />
+    <Compile Include="DC_KidneyFunctionsReports.cs" />
+    <Compile Include="DC_ElectrolytesReports.cs" />
+    <Compile Include="DC_DiabetesReports.cs" />
+    <Compile Include="DC_BloodCountReports.cs" />
+    <Compile Include="DC_BoneProfileReports.cs" />
     <Compile Include="DC_ErrorStatus.cs" />
     <Compile Include="DC_Message.cs" />
     <Compile Include="DC_PatientDetails.cs" />

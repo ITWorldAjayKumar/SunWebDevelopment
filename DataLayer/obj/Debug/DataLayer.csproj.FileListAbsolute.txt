@@ -10,3 +10,15 @@ E:\Projects\CLMS_App - Copy\DataLayer\obj\Debug\DataLayer.pdb
 E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\DataContract.dll
 E:\Projects\CLMS_App - Copy\DataLayer\bin\Debug\DataContract.pdb
 E:\Projects\CLMS_App - Copy\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\DataLayer.dll.config
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\DataLayer.dll
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\DataLayer.pdb
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\DataContract.dll
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.dll
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\DataContract.pdb
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.xml
+E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\Sun\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+E:\Projects\Sun\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.dll
+E:\Projects\Sun\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.pdb

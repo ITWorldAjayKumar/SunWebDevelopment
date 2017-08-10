@@ -2,3 +2,7 @@ E:\Projects\CLMS_App - Copy\DataContract\bin\Debug\DataContract.dll
 E:\Projects\CLMS_App - Copy\DataContract\bin\Debug\DataContract.pdb
 E:\Projects\CLMS_App - Copy\DataContract\obj\Debug\DataContract.dll
 E:\Projects\CLMS_App - Copy\DataContract\obj\Debug\DataContract.pdb
+E:\Projects\Sun\SunWebDevelopment\DataContract\bin\Debug\DataContract.dll
+E:\Projects\Sun\SunWebDevelopment\DataContract\bin\Debug\DataContract.pdb
+E:\Projects\Sun\SunWebDevelopment\DataContract\obj\Debug\DataContract.dll
+E:\Projects\Sun\SunWebDevelopment\DataContract\obj\Debug\DataContract.pdb
