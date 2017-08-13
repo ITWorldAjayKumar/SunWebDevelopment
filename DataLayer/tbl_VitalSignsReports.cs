@@ -12,7 +12,7 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class tbl_VitalSingsReports
+    public partial class tbl_VitalSignsReports
     {
         public System.Guid VSR_TestReportID { get; set; }
         public System.Guid PatientID { get; set; }

@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="601a6776a9b64a64bf9ffe57fe375c41" Name="Diagram1">
+      <Diagram DiagramId="601a6776a9b64a64bf9ffe57fe375c41" Name="Diagram1" ZoomLevel="83">
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_FileUploadDetails" Width="1.75" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_PatientDetails" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_VitalSingsDetails" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
@@ -18,8 +18,8 @@
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_LiverFunctionReports" Width="1.5" PointX="4.75" PointY="9.75" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_ThyroidProfileReports" Width="1.5" PointX="6.75" PointY="9.75" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_UrineReports" Width="1.5" PointX="8.75" PointY="9.75" />
-        <EntityTypeShape EntityType="CLMS_DBModel.tbl_VitalSingsReports" Width="1.5" PointX="10.75" PointY="9.75" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" Width="1.5" PointX="11.75" PointY="0.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tbl_VitalSignsReports" Width="1.5" PointX="11.375" PointY="9.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -41,7 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DC_VitalSingsReports.cs" />
+    <Compile Include="DC_VitalSignsReports.cs" />
     <Compile Include="DC_UrineReports.cs" />
     <Compile Include="DC_ThyroidProfileReports.cs" />
     <Compile Include="DC_LiverFunctionReports.cs" />

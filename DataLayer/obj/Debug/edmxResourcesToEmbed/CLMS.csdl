@@ -91,8 +91,8 @@
     <EntitySet Name="tbl_LiverFunctionReports" EntityType="CLMS_DBModel.tbl_LiverFunctionReports" />
     <EntitySet Name="tbl_ThyroidProfileReports" EntityType="CLMS_DBModel.tbl_ThyroidProfileReports" />
     <EntitySet Name="tbl_UrineReports" EntityType="CLMS_DBModel.tbl_UrineReports" />
-    <EntitySet Name="tbl_VitalSingsReports" EntityType="CLMS_DBModel.tbl_VitalSingsReports" />
     <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" />
+    <EntitySet Name="tbl_VitalSignsReports" EntityType="CLMS_DBModel.tbl_VitalSignsReports" />
   </EntityContainer>
   <EntityType Name="tbl_BloodCountReports">
     <Key>
@@ -257,23 +257,6 @@
     <Property Name="EditedDate" Type="DateTime" Precision="3" />
     <Property Name="IsActive" Type="Boolean" />
   </EntityType>
-  <EntityType Name="tbl_VitalSingsReports">
-    <Key>
-      <PropertyRef Name="VSR_TestReportID" />
-    </Key>
-    <Property Name="VSR_TestReportID" Type="Guid" Nullable="false" />
-    <Property Name="PatientID" Type="Guid" Nullable="false" />
-    <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="SBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="DBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="Weight" Type="Decimal" Precision="18" Scale="4" />
-    <Property Name="Pulse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-    <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-    <Property Name="EditedDate" Type="DateTime" Precision="3" />
-    <Property Name="IsActive" Type="Boolean" />
-  </EntityType>
   <EntityType Name="tbl_PatientDetails_3Aug2017">
     <Key>
       <PropertyRef Name="ID" />
@@ -296,5 +279,22 @@
     <Property Name="EditedDate" Type="DateTime" Precision="3" />
     <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
     <Property Name="IsActive" Type="Boolean" Nullable="false" />
+  </EntityType>
+  <EntityType Name="tbl_VitalSignsReports">
+    <Key>
+      <PropertyRef Name="VSR_TestReportID" />
+    </Key>
+    <Property Name="VSR_TestReportID" Type="Guid" Nullable="false" />
+    <Property Name="PatientID" Type="Guid" Nullable="false" />
+    <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="SBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="DBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Weight" Type="Decimal" Precision="18" Scale="4" />
+    <Property Name="Pulse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="EditedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsActive" Type="Boolean" />
   </EntityType>
 </Schema>

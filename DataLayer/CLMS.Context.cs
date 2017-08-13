@@ -38,7 +38,7 @@ namespace DataLayer
         public virtual DbSet<tbl_LiverFunctionReports> tbl_LiverFunctionReports { get; set; }
         public virtual DbSet<tbl_ThyroidProfileReports> tbl_ThyroidProfileReports { get; set; }
         public virtual DbSet<tbl_UrineReports> tbl_UrineReports { get; set; }
-        public virtual DbSet<tbl_VitalSingsReports> tbl_VitalSingsReports { get; set; }
         public virtual DbSet<tbl_PatientDetails_3Aug2017> tbl_PatientDetails_3Aug2017 { get; set; }
+        public virtual DbSet<tbl_VitalSignsReports> tbl_VitalSignsReports { get; set; }
     }
 }

@@ -344,12 +344,12 @@
     <Content Include="Patient\AddPatient.aspx" />
     <Content Include="Patient\AddReports.aspx" />
     <Content Include="Patient\AddVitalSings.aspx" />
-    <Content Include="Patient\DatePicker.aspx" />
     <Content Include="Patient\ManagePatients.aspx" />
     <Content Include="Patient\Report_PatientMgmt.aspx" />
     <Content Include="Patient\PatientMgmt.aspx" />
     <Content Include="Patient\ReportsMgmt.aspx" />
     <Content Include="Patient\VitalMgmt.aspx" />
+    <Content Include="ReportDataEntries\DM_VitalSignReport.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -384,6 +384,16 @@
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Site.Master" />
+    <Content Include="UserControls\ucLipidProfileReports.ascx" />
+    <Content Include="UserControls\ucKidneyFunctionsReports.ascx" />
+    <Content Include="UserControls\ucElectrolytesReports.ascx" />
+    <Content Include="UserControls\ucDiabetesReports.ascx" />
+    <Content Include="UserControls\ucBoneProfileReports.ascx" />
+    <Content Include="UserControls\ucBloodCountReports.ascx" />
+    <Content Include="UserControls\ucLiverFunctionReports.ascx" />
+    <Content Include="UserControls\ucThyroidProfileReports.ascx" />
+    <Content Include="UserControls\ucUrineReports.ascx" />
+    <Content Include="UserControls\ucVitalSignReport.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
@@ -561,13 +571,6 @@
     <Compile Include="Patient\AddVitalSings.aspx.designer.cs">
       <DependentUpon>AddVitalSings.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Patient\DatePicker.aspx.cs">
-      <DependentUpon>DatePicker.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Patient\DatePicker.aspx.designer.cs">
-      <DependentUpon>DatePicker.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Patient\ManagePatients.aspx.cs">
       <DependentUpon>ManagePatients.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -604,6 +607,13 @@
       <DependentUpon>VitalMgmt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportDataEntries\DM_VitalSignReport.aspx.cs">
+      <DependentUpon>DM_VitalSignReport.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportDataEntries\DM_VitalSignReport.aspx.designer.cs">
+      <DependentUpon>DM_VitalSignReport.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -619,6 +629,76 @@
       <DependentUpon>Site.Mobile.Master</DependentUpon>
     </Compile>
     <Compile Include="Startup.cs" />
+    <Compile Include="UserControls\ucLipidProfileReports.ascx.cs">
+      <DependentUpon>ucLipidProfileReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLipidProfileReports.ascx.designer.cs">
+      <DependentUpon>ucLipidProfileReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucKidneyFunctionsReports.ascx.cs">
+      <DependentUpon>ucKidneyFunctionsReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucKidneyFunctionsReports.ascx.designer.cs">
+      <DependentUpon>ucKidneyFunctionsReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucElectrolytesReports.ascx.cs">
+      <DependentUpon>ucElectrolytesReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucElectrolytesReports.ascx.designer.cs">
+      <DependentUpon>ucElectrolytesReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDiabetesReports.ascx.cs">
+      <DependentUpon>ucDiabetesReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDiabetesReports.ascx.designer.cs">
+      <DependentUpon>ucDiabetesReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucBoneProfileReports.ascx.cs">
+      <DependentUpon>ucBoneProfileReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucBoneProfileReports.ascx.designer.cs">
+      <DependentUpon>ucBoneProfileReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucBloodCountReports.ascx.cs">
+      <DependentUpon>ucBloodCountReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucBloodCountReports.ascx.designer.cs">
+      <DependentUpon>ucBloodCountReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLiverFunctionReports.ascx.cs">
+      <DependentUpon>ucLiverFunctionReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLiverFunctionReports.ascx.designer.cs">
+      <DependentUpon>ucLiverFunctionReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucThyroidProfileReports.ascx.cs">
+      <DependentUpon>ucThyroidProfileReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucThyroidProfileReports.ascx.designer.cs">
+      <DependentUpon>ucThyroidProfileReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucUrineReports.ascx.cs">
+      <DependentUpon>ucUrineReports.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucUrineReports.ascx.designer.cs">
+      <DependentUpon>ucUrineReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucVitalSignReport.ascx.cs">
+      <DependentUpon>ucVitalSignReport.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucVitalSignReport.ascx.designer.cs">
+      <DependentUpon>ucVitalSignReport.ascx</DependentUpon>
+    </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
