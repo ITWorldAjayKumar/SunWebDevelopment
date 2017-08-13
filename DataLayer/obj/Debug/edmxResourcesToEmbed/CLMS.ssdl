@@ -231,6 +231,23 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
     <Property Name="EditedDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
+  <EntityType Name="tbl_VitalSignsReports">
+    <Key>
+      <PropertyRef Name="VSR_TestReportID" />
+    </Key>
+    <Property Name="VSR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="TestDate" Type="datetime" Nullable="false" />
+    <Property Name="SBP" Type="nvarchar" MaxLength="50" />
+    <Property Name="DBP" Type="nvarchar" MaxLength="50" />
+    <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
+    <Property Name="Pulse" Type="nvarchar" MaxLength="50" />
+    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+    <Property Name="EditedDate" Type="datetime" />
+    <Property Name="IsActive" Type="bit" />
+  </EntityType>
   <EntityType Name="tbl_VitalSingsDetails">
     <Key>
       <PropertyRef Name="TestReportID" />
@@ -248,8 +265,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
     <Property Name="EditedDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
-  <!--Errors Found During Generation:
-warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
   <EntityType Name="tbl_VitalSingsDetails_History">
     <Key>
       <PropertyRef Name="TestReport_HistoryID" />
@@ -261,23 +276,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
     <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
     <Property Name="Temperature" Type="numeric" Precision="18" Scale="4" />
     <Property Name="Pluse" Type="nvarchar" MaxLength="50" />
-    <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-    <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
-    <Property Name="EditedDate" Type="datetime" />
-    <Property Name="IsActive" Type="bit" />
-  </EntityType>
-  <EntityType Name="tbl_VitalSingsReports">
-    <Key>
-      <PropertyRef Name="VSR_TestReportID" />
-    </Key>
-    <Property Name="VSR_TestReportID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="TestDate" Type="datetime" Nullable="false" />
-    <Property Name="SBP" Type="nvarchar" MaxLength="50" />
-    <Property Name="DBP" Type="nvarchar" MaxLength="50" />
-    <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
-    <Property Name="Pulse" Type="nvarchar" MaxLength="50" />
     <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
     <Property Name="CreatedDate" Type="datetime" Nullable="false" />
     <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
@@ -296,9 +294,9 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
     <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ThyroidProfileReports" EntityType="Self.tbl_ThyroidProfileReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_UrineReports" EntityType="Self.tbl_UrineReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_VitalSignsReports" EntityType="Self.tbl_VitalSignsReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tbl_VitalSingsReports" EntityType="Self.tbl_VitalSingsReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="Self.tbl_PatientDetails_3Aug2017" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [tbl_PatientDetails_3Aug2017].[ID] AS [ID], 

@@ -236,6 +236,23 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="tbl_VitalSignsReports">
+          <Key>
+            <PropertyRef Name="VSR_TestReportID" />
+          </Key>
+          <Property Name="VSR_TestReportID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="TestDate" Type="datetime" Nullable="false" />
+          <Property Name="SBP" Type="nvarchar" MaxLength="50" />
+          <Property Name="DBP" Type="nvarchar" MaxLength="50" />
+          <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
+          <Property Name="Pulse" Type="nvarchar" MaxLength="50" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
+          <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
+          <Property Name="EditedDate" Type="datetime" />
+          <Property Name="IsActive" Type="bit" />
+        </EntityType>
         <EntityType Name="tbl_VitalSingsDetails">
           <Key>
             <PropertyRef Name="TestReportID" />
@@ -253,8 +270,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
-        <!--Errors Found During Generation:
-warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="tbl_VitalSingsDetails_History">
           <Key>
             <PropertyRef Name="TestReport_HistoryID" />
@@ -266,23 +281,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
           <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
           <Property Name="Temperature" Type="numeric" Precision="18" Scale="4" />
           <Property Name="Pluse" Type="nvarchar" MaxLength="50" />
-          <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="CreatedDate" Type="datetime" Nullable="false" />
-          <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
-          <Property Name="EditedDate" Type="datetime" />
-          <Property Name="IsActive" Type="bit" />
-        </EntityType>
-        <EntityType Name="tbl_VitalSingsReports">
-          <Key>
-            <PropertyRef Name="VSR_TestReportID" />
-          </Key>
-          <Property Name="VSR_TestReportID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="PatientID" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="TestDate" Type="datetime" Nullable="false" />
-          <Property Name="SBP" Type="nvarchar" MaxLength="50" />
-          <Property Name="DBP" Type="nvarchar" MaxLength="50" />
-          <Property Name="Weight" Type="numeric" Precision="18" Scale="4" />
-          <Property Name="Pulse" Type="nvarchar" MaxLength="50" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="250" Nullable="false" />
           <Property Name="CreatedDate" Type="datetime" Nullable="false" />
           <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
@@ -301,9 +299,9 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
           <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ThyroidProfileReports" EntityType="Self.tbl_ThyroidProfileReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UrineReports" EntityType="Self.tbl_UrineReports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_VitalSignsReports" EntityType="Self.tbl_VitalSignsReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tbl_VitalSingsReports" EntityType="Self.tbl_VitalSingsReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="Self.tbl_PatientDetails_3Aug2017" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tbl_PatientDetails_3Aug2017].[ID] AS [ID], 
@@ -416,8 +414,8 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
           <EntitySet Name="tbl_LiverFunctionReports" EntityType="CLMS_DBModel.tbl_LiverFunctionReports" />
           <EntitySet Name="tbl_ThyroidProfileReports" EntityType="CLMS_DBModel.tbl_ThyroidProfileReports" />
           <EntitySet Name="tbl_UrineReports" EntityType="CLMS_DBModel.tbl_UrineReports" />
-          <EntitySet Name="tbl_VitalSingsReports" EntityType="CLMS_DBModel.tbl_VitalSingsReports" />
           <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" />
+          <EntitySet Name="tbl_VitalSignsReports" EntityType="CLMS_DBModel.tbl_VitalSignsReports" />
         </EntityContainer>
         <EntityType Name="tbl_BloodCountReports">
           <Key>
@@ -582,23 +580,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
           <Property Name="EditedDate" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityType Name="tbl_VitalSingsReports">
-          <Key>
-            <PropertyRef Name="VSR_TestReportID" />
-          </Key>
-          <Property Name="VSR_TestReportID" Type="Guid" Nullable="false" />
-          <Property Name="PatientID" Type="Guid" Nullable="false" />
-          <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="SBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="DBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="Weight" Type="Decimal" Precision="18" Scale="4" />
-          <Property Name="Pulse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
-          <Property Name="EditedDate" Type="DateTime" Precision="3" />
-          <Property Name="IsActive" Type="Boolean" />
-        </EntityType>
         <EntityType Name="tbl_PatientDetails_3Aug2017">
           <Key>
             <PropertyRef Name="ID" />
@@ -621,6 +602,23 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
           <Property Name="EditedDate" Type="DateTime" Precision="3" />
           <Property Name="EditedBy" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tbl_VitalSignsReports">
+          <Key>
+            <PropertyRef Name="VSR_TestReportID" />
+          </Key>
+          <Property Name="VSR_TestReportID" Type="Guid" Nullable="false" />
+          <Property Name="PatientID" Type="Guid" Nullable="false" />
+          <Property Name="TestDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DBP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="4" />
+          <Property Name="Pulse" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedBy" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CreatedDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="EditedDate" Type="DateTime" Precision="3" />
+          <Property Name="IsActive" Type="Boolean" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -881,24 +879,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tbl_VitalSingsReports">
-            <EntityTypeMapping TypeName="CLMS_DBModel.tbl_VitalSingsReports">
-              <MappingFragment StoreEntitySet="tbl_VitalSingsReports">
-                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
-                <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
-                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
-                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
-                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
-                <ScalarProperty Name="Pulse" ColumnName="Pulse" />
-                <ScalarProperty Name="Weight" ColumnName="Weight" />
-                <ScalarProperty Name="DBP" ColumnName="DBP" />
-                <ScalarProperty Name="SBP" ColumnName="SBP" />
-                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
-                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
-                <ScalarProperty Name="VSR_TestReportID" ColumnName="VSR_TestReportID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="tbl_PatientDetails_3Aug2017">
             <EntityTypeMapping TypeName="CLMS_DBModel.tbl_PatientDetails_3Aug2017">
               <MappingFragment StoreEntitySet="tbl_PatientDetails_3Aug2017">
@@ -914,6 +894,24 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_VitalSingsDetails_3Aug2017' does n
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tbl_VitalSignsReports">
+            <EntityTypeMapping TypeName="CLMS_DBModel.tbl_VitalSignsReports">
+              <MappingFragment StoreEntitySet="tbl_VitalSignsReports">
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
+                <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="Pulse" ColumnName="Pulse" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="DBP" ColumnName="DBP" />
+                <ScalarProperty Name="SBP" ColumnName="SBP" />
+                <ScalarProperty Name="TestDate" ColumnName="TestDate" />
+                <ScalarProperty Name="PatientID" ColumnName="PatientID" />
+                <ScalarProperty Name="VSR_TestReportID" ColumnName="VSR_TestReportID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

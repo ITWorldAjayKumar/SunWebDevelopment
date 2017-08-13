@@ -7,9 +7,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CLMS_App.Patient {
+namespace CLMS_App.UserControls {
     
     
-    public partial class DatePicker {
+    public partial class ucDiabetesReports {
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace DataContract
 {
     [DataContract]
-    public class DC_VitalSingsReports
+    public class DC_VitalSignsReports
     {
         [DataMember]
         public Guid VSR_TestReportID { get; set; }
@@ -34,5 +34,19 @@ namespace DataContract
         public DateTime? EditedDate { get; set; }
         [DataMember]
         public bool IsActive { get; set; }
+        [DataMember]
+        public int? TotalRecord { get; set; }
+    }
+    [DataContract]
+    public class DC_VitalSignsReports_Search
+    {
+        [DataMember]
+        public Guid? VSR_TestReportID { get; set; }
+        [DataMember]
+        public Guid? PatientID { get; set; }
+        [DataMember]
+        public int? PageNo { get; set; }
+        [DataMember]
+        public int? PageSize { get; set; }
     }
 }
