@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace CLMS_App.ReportDataEntries
+namespace CLMS_App.ReportsDE
 {
-    public partial class DM_VitalSignReport : System.Web.UI.Page
+    public partial class Report_UrineDE : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

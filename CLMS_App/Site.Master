@@ -28,6 +28,7 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+  
     <script type="text/javascript">
         //$(document).ready(function () {
         //    $(".stars").hover(alert('Hi'));
@@ -67,7 +68,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <img src="../Images/CLMS.gif" alt="Company Logo" />
+                        <img src="Images/LogoCLMS.png" alt="Company Logo" />
                     </a>
                 </div>
                 <!-- Top Menu Items -->

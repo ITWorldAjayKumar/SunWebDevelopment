@@ -315,6 +315,7 @@
     <Content Include="font-awesome\scss\_spinning.scss" />
     <Content Include="font-awesome\scss\_stacked.scss" />
     <Content Include="font-awesome\scss\_variables.scss" />
+    <Content Include="Images\LogoCLMS.png" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Images\banner.jpg" />
     <Content Include="Images\CLMS.gif" />
@@ -349,7 +350,8 @@
     <Content Include="Patient\PatientMgmt.aspx" />
     <Content Include="Patient\ReportsMgmt.aspx" />
     <Content Include="Patient\VitalMgmt.aspx" />
-    <Content Include="ReportDataEntries\DM_VitalSignReport.aspx" />
+    <Content Include="ReportsDE\Report_UrineDE.aspx" />
+    <Content Include="ReportsDE\Report_VitalSignDE.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -393,6 +395,8 @@
     <Content Include="UserControls\ucLiverFunctionReports.ascx" />
     <Content Include="UserControls\ucThyroidProfileReports.ascx" />
     <Content Include="UserControls\ucUrineReports.ascx" />
+    <Content Include="UserControls\ucUrineReportsDE.ascx" />
+    <Content Include="UserControls\ucVitalSignDE.ascx" />
     <Content Include="UserControls\ucVitalSignReport.ascx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config">
@@ -607,12 +611,19 @@
       <DependentUpon>VitalMgmt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReportDataEntries\DM_VitalSignReport.aspx.cs">
-      <DependentUpon>DM_VitalSignReport.aspx</DependentUpon>
+    <Compile Include="ReportsDE\Report_UrineDE.aspx.cs">
+      <DependentUpon>Report_UrineDE.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ReportDataEntries\DM_VitalSignReport.aspx.designer.cs">
-      <DependentUpon>DM_VitalSignReport.aspx</DependentUpon>
+    <Compile Include="ReportsDE\Report_UrineDE.aspx.designer.cs">
+      <DependentUpon>Report_UrineDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_VitalSignDE.aspx.cs">
+      <DependentUpon>Report_VitalSignDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_VitalSignDE.aspx.designer.cs">
+      <DependentUpon>Report_VitalSignDE.aspx</DependentUpon>
     </Compile>
     <Compile Include="Site.Master.cs">
       <DependentUpon>Site.Master</DependentUpon>
@@ -691,6 +702,20 @@
     </Compile>
     <Compile Include="UserControls\ucUrineReports.ascx.designer.cs">
       <DependentUpon>ucUrineReports.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucUrineReportsDE.ascx.cs">
+      <DependentUpon>ucUrineReportsDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucUrineReportsDE.ascx.designer.cs">
+      <DependentUpon>ucUrineReportsDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucVitalSignDE.ascx.cs">
+      <DependentUpon>ucVitalSignDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucVitalSignDE.ascx.designer.cs">
+      <DependentUpon>ucVitalSignDE.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucVitalSignReport.ascx.cs">
       <DependentUpon>ucVitalSignReport.ascx</DependentUpon>
