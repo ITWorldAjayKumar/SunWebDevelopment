@@ -98,6 +98,8 @@ namespace CLMS_App.UserControls
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
+                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    BindGridDetails();
                 }
             }
             if (e.CommandName == "UpdateVitalSign")
@@ -116,10 +118,10 @@ namespace CLMS_App.UserControls
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
+                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    BindGridDetails();
                 }
             }
-            frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
-            BindGridDetails();
 
         }
 

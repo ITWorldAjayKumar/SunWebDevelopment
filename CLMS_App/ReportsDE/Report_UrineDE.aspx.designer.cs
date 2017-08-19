@@ -13,12 +13,12 @@ namespace CLMS_App.ReportsDE {
     public partial class Report_UrineDE {
         
         /// <summary>
-        /// ucUrineReportsDE control.
+        /// ucUrineDE control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::CLMS_App.UserControls.ucUrineReportsDE ucUrineReportsDE;
+        protected global::CLMS_App.UserControls.ucUrineDE ucUrineDE;
     }
 }

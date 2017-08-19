@@ -353,7 +353,15 @@
     <Content Include="Patient\PatientMgmt.aspx" />
     <Content Include="Patient\ReportsMgmt.aspx" />
     <Content Include="Patient\VitalMgmt.aspx" />
+    <Content Include="ReportsDE\Report_BoneProfileDE.aspx" />
     <Content Include="ReportsDE\Report_UrineDE.aspx" />
+    <Content Include="ReportsDE\Report_DiabetesDE.aspx" />
+    <Content Include="ReportsDE\Report_KidneyFunDE.aspx" />
+    <Content Include="ReportsDE\Report_LiverFunDE.aspx" />
+    <Content Include="ReportsDE\Report_LipidProfileDE.aspx" />
+    <Content Include="ReportsDE\Report_ThyroidProfileDE.aspx" />
+    <Content Include="ReportsDE\Report_BloodCountDE.aspx" />
+    <Content Include="ReportsDE\Report_ElectrolytesDE.aspx" />
     <Content Include="ReportsDE\Report_VitalSignDE.aspx" />
     <Content Include="Scripts\ai.0.22.9-build00167.js" />
     <Content Include="Scripts\ai.0.22.9-build00167.min.js" />
@@ -398,7 +406,15 @@
     <Content Include="UserControls\ucLiverFunctionReports.ascx" />
     <Content Include="UserControls\ucThyroidProfileReports.ascx" />
     <Content Include="UserControls\ucUrineReports.ascx" />
-    <Content Include="UserControls\ucUrineReportsDE.ascx" />
+    <Content Include="UserControls\ucUrineDE.ascx" />
+    <Content Include="UserControls\ucKidneyFunDE.ascx" />
+    <Content Include="UserControls\ucLiverFunDE.ascx" />
+    <Content Include="UserControls\ucLipidProfileDE.ascx" />
+    <Content Include="UserControls\ucThyroidProfileDE.ascx" />
+    <Content Include="UserControls\ucBloodCountDE.ascx" />
+    <Content Include="UserControls\ucElectrolytesDE.ascx" />
+    <Content Include="UserControls\ucBoneProfileDE.ascx" />
+    <Content Include="UserControls\ucDiabetesDE.ascx" />
     <Content Include="UserControls\ucVitalSignDE.ascx" />
     <Content Include="UserControls\ucVitalSignReport.ascx" />
     <Content Include="ViewSwitcher.ascx" />
@@ -614,12 +630,68 @@
       <DependentUpon>VitalMgmt.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportsDE\Report_BoneProfileDE.aspx.cs">
+      <DependentUpon>Report_BoneProfileDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_BoneProfileDE.aspx.designer.cs">
+      <DependentUpon>Report_BoneProfileDE.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ReportsDE\Report_UrineDE.aspx.cs">
       <DependentUpon>Report_UrineDE.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ReportsDE\Report_UrineDE.aspx.designer.cs">
       <DependentUpon>Report_UrineDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_DiabetesDE.aspx.cs">
+      <DependentUpon>Report_DiabetesDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_DiabetesDE.aspx.designer.cs">
+      <DependentUpon>Report_DiabetesDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_KidneyFunDE.aspx.cs">
+      <DependentUpon>Report_KidneyFunDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_KidneyFunDE.aspx.designer.cs">
+      <DependentUpon>Report_KidneyFunDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_LiverFunDE.aspx.cs">
+      <DependentUpon>Report_LiverFunDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_LiverFunDE.aspx.designer.cs">
+      <DependentUpon>Report_LiverFunDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_LipidProfileDE.aspx.cs">
+      <DependentUpon>Report_LipidProfileDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_LipidProfileDE.aspx.designer.cs">
+      <DependentUpon>Report_LipidProfileDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_ThyroidProfileDE.aspx.cs">
+      <DependentUpon>Report_ThyroidProfileDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_ThyroidProfileDE.aspx.designer.cs">
+      <DependentUpon>Report_ThyroidProfileDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_BloodCountDE.aspx.cs">
+      <DependentUpon>Report_BloodCountDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_BloodCountDE.aspx.designer.cs">
+      <DependentUpon>Report_BloodCountDE.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ReportsDE\Report_ElectrolytesDE.aspx.cs">
+      <DependentUpon>Report_ElectrolytesDE.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ReportsDE\Report_ElectrolytesDE.aspx.designer.cs">
+      <DependentUpon>Report_ElectrolytesDE.aspx</DependentUpon>
     </Compile>
     <Compile Include="ReportsDE\Report_VitalSignDE.aspx.cs">
       <DependentUpon>Report_VitalSignDE.aspx</DependentUpon>
@@ -706,12 +778,68 @@
     <Compile Include="UserControls\ucUrineReports.ascx.designer.cs">
       <DependentUpon>ucUrineReports.ascx</DependentUpon>
     </Compile>
-    <Compile Include="UserControls\ucUrineReportsDE.ascx.cs">
-      <DependentUpon>ucUrineReportsDE.ascx</DependentUpon>
+    <Compile Include="UserControls\ucUrineDE.ascx.cs">
+      <DependentUpon>ucUrineDE.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UserControls\ucUrineReportsDE.ascx.designer.cs">
-      <DependentUpon>ucUrineReportsDE.ascx</DependentUpon>
+    <Compile Include="UserControls\ucUrineDE.ascx.designer.cs">
+      <DependentUpon>ucUrineDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucKidneyFunDE.ascx.cs">
+      <DependentUpon>ucKidneyFunDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucKidneyFunDE.ascx.designer.cs">
+      <DependentUpon>ucKidneyFunDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLiverFunDE.ascx.cs">
+      <DependentUpon>ucLiverFunDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLiverFunDE.ascx.designer.cs">
+      <DependentUpon>ucLiverFunDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucLipidProfileDE.ascx.cs">
+      <DependentUpon>ucLipidProfileDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucLipidProfileDE.ascx.designer.cs">
+      <DependentUpon>ucLipidProfileDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucThyroidProfileDE.ascx.cs">
+      <DependentUpon>ucThyroidProfileDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucThyroidProfileDE.ascx.designer.cs">
+      <DependentUpon>ucThyroidProfileDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucBloodCountDE.ascx.cs">
+      <DependentUpon>ucBloodCountDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucBloodCountDE.ascx.designer.cs">
+      <DependentUpon>ucBloodCountDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucElectrolytesDE.ascx.cs">
+      <DependentUpon>ucElectrolytesDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucElectrolytesDE.ascx.designer.cs">
+      <DependentUpon>ucElectrolytesDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucBoneProfileDE.ascx.cs">
+      <DependentUpon>ucBoneProfileDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucBoneProfileDE.ascx.designer.cs">
+      <DependentUpon>ucBoneProfileDE.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ucDiabetesDE.ascx.cs">
+      <DependentUpon>ucDiabetesDE.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UserControls\ucDiabetesDE.ascx.designer.cs">
+      <DependentUpon>ucDiabetesDE.ascx</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ucVitalSignDE.ascx.cs">
       <DependentUpon>ucVitalSignDE.ascx</DependentUpon>

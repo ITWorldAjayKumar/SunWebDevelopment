@@ -52,7 +52,7 @@ namespace DataLayer.Reports
                                       IsActive = rs.IsActive ?? false,
                                       TotalRecord = total
                                   });
-                    return result.OrderBy(p => p.CreatedDate).Skip(skip).Take((_objSearch.PageSize ?? total)).ToList();
+                    return result.OrderByDescending(p => p.TestDate).Skip(skip).Take((_objSearch.PageSize ?? total)).ToList();
                 }
             }
             catch (Exception ex)
@@ -129,6 +129,33 @@ namespace DataLayer.Reports
                                 _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                             }
+                        }
+
+                    }
+                    else
+                    {
+                        tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
+                        _objnew.VSR_TestReportID = Guid.NewGuid();
+                        _objnew.PatientID = _objSave.PatientID;
+                        _objnew.CreatedBy = _objSave.CreatedBy;
+                        _objnew.CreatedDate = _objSave.CreatedDate;
+                        _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
+                        _objnew.SBP = _objSave.SBP;
+                        _objnew.DBP = _objSave.DBP;
+                        _objnew.Pulse = _objSave.Pulse;
+                        _objnew.IsActive = _objSave.IsActive;
+                        _objnew.TestDate = _objSave.TestDate;
+
+                        context.tbl_VitalSignsReports.Add(_objnew);
+                        if (context.SaveChanges() == 1)
+                        {
+                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
+                            _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
+                        }
+                        else
+                        {
+                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                            _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                         }
                     }
                 }
