@@ -261,6 +261,7 @@
     <Content Include="Contact.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\jquery-ui.css" />
     <Content Include="Content\Site.css" />
     <Content Include="css\bootstrap-datepicker.css" />
     <Content Include="css\bootstrap-rtl.css" />
@@ -329,6 +330,8 @@
     <Content Include="js\HighCharts\exporting.js" />
     <Content Include="js\HighCharts\highcharts.js" />
     <Content Include="js\jquery.js" />
+    <Content Include="js\Jquery\jquery-1.12.4.js" />
+    <Content Include="js\Jquery\jquery-ui.js" />
     <Content Include="js\moment.js" />
     <Content Include="js\plugins\flot\excanvas.min.js" />
     <Content Include="js\plugins\flot\flot-data.js" />
