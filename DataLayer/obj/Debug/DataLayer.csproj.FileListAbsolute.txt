@@ -22,3 +22,15 @@ E:\Projects\Sun\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.SqlServer.
 E:\Projects\Sun\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
 E:\Projects\Sun\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.dll
 E:\Projects\Sun\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.pdb
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\DataLayer.dll.config
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\DataLayer.dll
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\DataLayer.pdb
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\DataContract.dll
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.dll
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\DataContract.pdb
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.xml
+E:\Projects\SunWebDevelopment\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+E:\Projects\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.csprojResolveAssemblyReference.cache
+E:\Projects\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.dll
+E:\Projects\SunWebDevelopment\DataLayer\obj\Debug\DataLayer.pdb
