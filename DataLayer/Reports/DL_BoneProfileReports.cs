@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Reports
 {
-    public class DL_VitalSignsReports : IDisposable
+    public class DL_BoneProfileReports : IDisposable
     {
         public void Dispose()
         { }
