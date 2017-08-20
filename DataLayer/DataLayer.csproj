@@ -70,6 +70,15 @@
     <Compile Include="DL_FileUploadDetails.cs" />
     <Compile Include="DL_VitalDetails.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\DL_BloodCountReports.cs" />
+    <Compile Include="Reports\DL_ElectrolytesReports.cs" />
+    <Compile Include="Reports\DL_BoneProfileReports.cs" />
+    <Compile Include="Reports\DL_UrineReports.cs" />
+    <Compile Include="Reports\DL_ThyroidProfileReports.cs" />
+    <Compile Include="Reports\DL_LipidProfileReports.cs" />
+    <Compile Include="Reports\DL_LiverFunReports.cs" />
+    <Compile Include="Reports\DL_KidneyFunReports.cs" />
+    <Compile Include="Reports\DL_DiabetesReports.cs" />
     <Compile Include="Reports\DL_VitalSignsReports.cs" />
     <Compile Include="tbl_BloodCountReports.cs">
       <DependentUpon>CLMS.tt</DependentUpon>

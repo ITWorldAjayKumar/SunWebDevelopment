@@ -129,7 +129,7 @@
                                         <asp:TemplateField HeaderText="Vital Sign">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="lnkaddVitalSign" runat="server" CssClass="btn btn-default" CommandName="select"
-                                                    PostBackUrl='<%# String.Format("~/Patient/VitalMgmt.aspx?PatientID={0}",Eval("id")) %>'>
+                                                    PostBackUrl='<%# String.Format("~/ReportsDE/Report_VitalSignDE.aspx?PatientID={0}",Eval("id")) %>'>
                                                <span aria-hidden="true" class="glyphicon glyphicon-edit"></span>&nbspAdd/Edit </asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
