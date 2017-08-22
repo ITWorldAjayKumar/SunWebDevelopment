@@ -12,18 +12,18 @@ namespace DataLayer.Reports
     {
         public void Dispose()
         { }
-        public List<DC_VitalSignsReports> GetVitalSingsReports(DC_VitalSignsReports_Search _objSearch)
+        public List<DC_ElectrolytesReports> GetElectrolytesReports(DC_ElectrolytesReports_Search _objSearch)
         {
             try
             {
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
-                    var search = from x in context.tbl_VitalSignsReports select x;
+                    var search = from x in context.tbl_ElectrolytesReports select x;
 
                     if (_objSearch.PatientID.HasValue)
                         search = from x in search where x.PatientID == _objSearch.PatientID.Value select x;
-                    if (_objSearch.VSR_TestReportID.HasValue)
-                        search = from x in search where x.VSR_TestReportID == _objSearch.VSR_TestReportID.Value select x;
+                    if (_objSearch.ER_TestReportID.HasValue)
+                        search = from x in search where x.ER_TestReportID == _objSearch.ER_TestReportID.Value select x;
 
                     int total;
                     total = search.Count();
@@ -36,21 +36,20 @@ namespace DataLayer.Reports
 
                     var result = (from rs in search
                                   orderby rs.TestDate
-                                  select new DC_VitalSignsReports
+                                  select new DC_ElectrolytesReports
                                   {
-                                      VSR_TestReportID = rs.VSR_TestReportID,
-                                      Weight = rs.Weight.ToString(),
-                                      DBP = rs.DBP,
+                                      ER_TestReportID = rs.ER_TestReportID,
                                       PatientID = rs.PatientID,
-                                      Pulse = rs.Pulse,
-                                      SBP = rs.SBP,
                                       TestDate = rs.TestDate,
                                       CreatedBy = rs.CreatedBy,
                                       CreatedDate = rs.CreatedDate,
                                       EditedBy = rs.EditedBy,
                                       EditedDate = rs.EditedDate,
                                       IsActive = rs.IsActive ?? false,
-                                      TotalRecord = total
+                                      TotalRecord = total,
+                                      Sodium = rs.Sodium,
+                                      Potassium = rs.Potassium,
+                                      Chloride = rs.Chloride
                                   });
                     return result.OrderByDescending(p => p.TestDate).Skip(skip).Take((_objSearch.PageSize ?? total)).ToList();
                 }
@@ -61,7 +60,7 @@ namespace DataLayer.Reports
                 throw;
             }
         }
-        public DC_Message AddUpdateVitalSingsReports(DC_VitalSignsReports _objSave)
+        public DC_Message AddUpdateElectrolytesReports(DC_ElectrolytesReports _objSave)
         {
             DC_Message _msg = new DC_Message();
             try
@@ -69,10 +68,10 @@ namespace DataLayer.Reports
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
 
-                    if (_objSave.VSR_TestReportID != null && _objSave.VSR_TestReportID != Guid.Empty)
+                    if (_objSave.ER_TestReportID != null && _objSave.ER_TestReportID != Guid.Empty)
                     {
-                        var isDuplicate = (from x in context.tbl_VitalSignsReports
-                                           where x.VSR_TestReportID != _objSave.VSR_TestReportID
+                        var isDuplicate = (from x in context.tbl_ElectrolytesReports
+                                           where x.ER_TestReportID != _objSave.ER_TestReportID
                                            && x.PatientID == x.PatientID && x.TestDate == _objSave.TestDate
                                            select x).Count() == 0 ? false : true;
 
@@ -82,52 +81,51 @@ namespace DataLayer.Reports
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Duplicate;
                             return _msg;
                         }
-                        var report = context.tbl_VitalSignsReports.Find(_objSave.VSR_TestReportID);
+                        var report = context.tbl_ElectrolytesReports.Find(_objSave.ER_TestReportID);
 
                         if (report != null)
                         {
-                            report.TestDate = _objSave.TestDate;
-                            report.IsActive = _objSave.IsActive;
                             report.EditedBy = _objSave.EditedBy;
                             report.EditedDate = _objSave.EditedDate;
-                            report.Pulse = _objSave.Pulse;
-                            report.SBP = _objSave.SBP;
-                            report.DBP = _objSave.DBP;
-                            report.Weight = Convert.ToDecimal(_objSave.Weight);
+                            report.Sodium = _objSave.Sodium;
+                            report.Potassium = _objSave.Potassium;
+                            report.Chloride = _objSave.Chloride;
+                            report.IsActive = _objSave.IsActive;
+                            report.TestDate = _objSave.TestDate;
+
                             if (context.SaveChanges() == 1)
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strUpdatedSuccessfully;
+                                _msg.StatusMessage = "Electrolytes report has been" + ReadOnlyMessage.strUpdatedSuccessfully;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                             }
                             else
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                                _msg.StatusMessage = "Electrolytes report has been" + ReadOnlyMessage.strFailed;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                             }
                         }
                         else
                         {
-                            tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                            _objnew.VSR_TestReportID = Guid.NewGuid();
+                            tbl_ElectrolytesReports _objnew = new tbl_ElectrolytesReports();
+                            _objnew.ER_TestReportID = Guid.NewGuid();
                             _objnew.PatientID = _objSave.PatientID;
                             _objnew.CreatedBy = _objSave.CreatedBy;
                             _objnew.CreatedDate = _objSave.CreatedDate;
-                            _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                            _objnew.SBP = _objSave.SBP;
-                            _objnew.DBP = _objSave.DBP;
-                            _objnew.Pulse = _objSave.Pulse;
+                            _objnew.Sodium = _objSave.Sodium;
+                            _objnew.Potassium = _objSave.Potassium;
+                            _objnew.Chloride = _objSave.Chloride;
                             _objnew.IsActive = _objSave.IsActive;
                             _objnew.TestDate = _objSave.TestDate;
 
-                            context.tbl_VitalSignsReports.Add(_objnew);
+                            context.tbl_ElectrolytesReports.Add(_objnew);
                             if (context.SaveChanges() == 1)
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
+                                _msg.StatusMessage = "Electrolytes report has been" + ReadOnlyMessage.strAddedSuccessfully;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                             }
                             else
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                                _msg.StatusMessage = "Electrolytes report has been" + ReadOnlyMessage.strFailed;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                             }
                         }
@@ -135,27 +133,26 @@ namespace DataLayer.Reports
                     }
                     else
                     {
-                        tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                        _objnew.VSR_TestReportID = Guid.NewGuid();
+                        tbl_ElectrolytesReports _objnew = new tbl_ElectrolytesReports();
+                        _objnew.ER_TestReportID = Guid.NewGuid();
                         _objnew.PatientID = _objSave.PatientID;
                         _objnew.CreatedBy = _objSave.CreatedBy;
                         _objnew.CreatedDate = _objSave.CreatedDate;
-                        _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                        _objnew.SBP = _objSave.SBP;
-                        _objnew.DBP = _objSave.DBP;
-                        _objnew.Pulse = _objSave.Pulse;
+                        _objnew.Sodium = _objSave.Sodium;
+                        _objnew.Potassium = _objSave.Potassium;
+                        _objnew.Chloride = _objSave.Chloride;
                         _objnew.IsActive = _objSave.IsActive;
                         _objnew.TestDate = _objSave.TestDate;
 
-                        context.tbl_VitalSignsReports.Add(_objnew);
+                        context.tbl_ElectrolytesReports.Add(_objnew);
                         if (context.SaveChanges() == 1)
                         {
-                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
+                            _msg.StatusMessage = "Electrolytes report has been" + ReadOnlyMessage.strAddedSuccessfully;
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                         }
                         else
                         {
-                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                            _msg.StatusMessage = "Electrolytes report has been" + ReadOnlyMessage.strFailed;
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                         }
                     }

@@ -39,4 +39,17 @@ namespace DataContract
         [DataMember]
         public bool IsActive { get; set; }
     }
+
+    [DataContract]
+    public class DC_LipidProfileReports_Search
+    {
+        [DataMember]
+        public Guid? LPR_TestReportID { get; set; }
+        [DataMember]
+        public Guid? PatientID { get; set; }
+        [DataMember]
+        public int? PageNo { get; set; }
+        [DataMember]
+        public int? PageSize { get; set; }
+    }
 }

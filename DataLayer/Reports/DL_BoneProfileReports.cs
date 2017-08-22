@@ -12,18 +12,18 @@ namespace DataLayer.Reports
     {
         public void Dispose()
         { }
-        public List<DC_VitalSignsReports> GetVitalSingsReports(DC_VitalSignsReports_Search _objSearch)
+        public List<DC_BoneProfileReports> GetBoneProfileReports(DC_BoneProfileReports_Search _objSearch)
         {
             try
             {
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
-                    var search = from x in context.tbl_VitalSignsReports select x;
+                    var search = from x in context.tbl_BoneProfileReports select x;
 
                     if (_objSearch.PatientID.HasValue)
                         search = from x in search where x.PatientID == _objSearch.PatientID.Value select x;
-                    if (_objSearch.VSR_TestReportID.HasValue)
-                        search = from x in search where x.VSR_TestReportID == _objSearch.VSR_TestReportID.Value select x;
+                    if (_objSearch.BPR_TestReportID.HasValue)
+                        search = from x in search where x.BPR_TestReportID == _objSearch.BPR_TestReportID.Value select x;
 
                     int total;
                     total = search.Count();
@@ -36,14 +36,14 @@ namespace DataLayer.Reports
 
                     var result = (from rs in search
                                   orderby rs.TestDate
-                                  select new DC_VitalSignsReports
+                                  select new DC_BoneProfileReports
                                   {
-                                      VSR_TestReportID = rs.VSR_TestReportID,
-                                      Weight = rs.Weight.ToString(),
-                                      DBP = rs.DBP,
+                                      BPR_TestReportID = rs.BPR_TestReportID,
+                                      VitaminD = rs.VitaminD,
+                                      ParathyroidHormone = rs.ParathyroidHormone,
                                       PatientID = rs.PatientID,
-                                      Pulse = rs.Pulse,
-                                      SBP = rs.SBP,
+                                      Calcium = rs.Calcium,
+                                      Magnesium = rs.Magnesium,
                                       TestDate = rs.TestDate,
                                       CreatedBy = rs.CreatedBy,
                                       CreatedDate = rs.CreatedDate,
@@ -61,7 +61,7 @@ namespace DataLayer.Reports
                 throw;
             }
         }
-        public DC_Message AddUpdateVitalSingsReports(DC_VitalSignsReports _objSave)
+        public DC_Message AddUpdateBoneProfileReports(DC_BoneProfileReports _objSave)
         {
             DC_Message _msg = new DC_Message();
             try
@@ -69,10 +69,10 @@ namespace DataLayer.Reports
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
 
-                    if (_objSave.VSR_TestReportID != null && _objSave.VSR_TestReportID != Guid.Empty)
+                    if (_objSave.BPR_TestReportID != null && _objSave.BPR_TestReportID != Guid.Empty)
                     {
                         var isDuplicate = (from x in context.tbl_VitalSignsReports
-                                           where x.VSR_TestReportID != _objSave.VSR_TestReportID
+                                           where x.VSR_TestReportID != _objSave.BPR_TestReportID
                                            && x.PatientID == x.PatientID && x.TestDate == _objSave.TestDate
                                            select x).Count() == 0 ? false : true;
 
@@ -82,7 +82,7 @@ namespace DataLayer.Reports
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Duplicate;
                             return _msg;
                         }
-                        var report = context.tbl_VitalSignsReports.Find(_objSave.VSR_TestReportID);
+                        var report = context.tbl_BoneProfileReports.Find(_objSave.BPR_TestReportID);
 
                         if (report != null)
                         {
@@ -90,10 +90,10 @@ namespace DataLayer.Reports
                             report.IsActive = _objSave.IsActive;
                             report.EditedBy = _objSave.EditedBy;
                             report.EditedDate = _objSave.EditedDate;
-                            report.Pulse = _objSave.Pulse;
-                            report.SBP = _objSave.SBP;
-                            report.DBP = _objSave.DBP;
-                            report.Weight = Convert.ToDecimal(_objSave.Weight);
+                            report.VitaminD = _objSave.VitaminD;
+                            report.ParathyroidHormone = _objSave.ParathyroidHormone;
+                            report.Calcium = _objSave.Calcium;
+                            report.Magnesium = _objSave.Magnesium;
                             if (context.SaveChanges() == 1)
                             {
                                 _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strUpdatedSuccessfully;
@@ -107,19 +107,19 @@ namespace DataLayer.Reports
                         }
                         else
                         {
-                            tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                            _objnew.VSR_TestReportID = Guid.NewGuid();
+                            tbl_BoneProfileReports _objnew = new tbl_BoneProfileReports();
+                            _objnew.BPR_TestReportID = Guid.NewGuid();
                             _objnew.PatientID = _objSave.PatientID;
-                            _objnew.CreatedBy = _objSave.CreatedBy;
-                            _objnew.CreatedDate = _objSave.CreatedDate;
-                            _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                            _objnew.SBP = _objSave.SBP;
-                            _objnew.DBP = _objSave.DBP;
-                            _objnew.Pulse = _objSave.Pulse;
-                            _objnew.IsActive = _objSave.IsActive;
-                            _objnew.TestDate = _objSave.TestDate;
+                            report.TestDate = _objSave.TestDate;
+                            report.VitaminD = _objSave.VitaminD;
+                            report.ParathyroidHormone = _objSave.ParathyroidHormone;
+                            report.Calcium = _objSave.Calcium;
+                            report.Magnesium = _objSave.Magnesium;
+                            report.IsActive = _objSave.IsActive;
+                            report.CreatedBy = _objSave.CreatedBy;
+                            report.CreatedDate = _objSave.CreatedDate;
 
-                            context.tbl_VitalSignsReports.Add(_objnew);
+                            context.tbl_BoneProfileReports.Add(_objnew);
                             if (context.SaveChanges() == 1)
                             {
                                 _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
@@ -135,19 +135,19 @@ namespace DataLayer.Reports
                     }
                     else
                     {
-                        tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                        _objnew.VSR_TestReportID = Guid.NewGuid();
+
+                        tbl_BoneProfileReports _objnew = new tbl_BoneProfileReports();
+                        _objnew.BPR_TestReportID = Guid.NewGuid();
                         _objnew.PatientID = _objSave.PatientID;
+                        _objnew.TestDate = _objSave.TestDate;
+                        _objnew.VitaminD = _objSave.VitaminD;
+                        _objnew.ParathyroidHormone = _objSave.ParathyroidHormone;
+                        _objnew.Calcium = _objSave.Calcium;
+                        _objnew.Magnesium = _objSave.Magnesium;
+                        _objnew.IsActive = _objSave.IsActive;
                         _objnew.CreatedBy = _objSave.CreatedBy;
                         _objnew.CreatedDate = _objSave.CreatedDate;
-                        _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                        _objnew.SBP = _objSave.SBP;
-                        _objnew.DBP = _objSave.DBP;
-                        _objnew.Pulse = _objSave.Pulse;
-                        _objnew.IsActive = _objSave.IsActive;
-                        _objnew.TestDate = _objSave.TestDate;
-
-                        context.tbl_VitalSignsReports.Add(_objnew);
+                        context.tbl_BoneProfileReports.Add(_objnew);
                         if (context.SaveChanges() == 1)
                         {
                             _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
