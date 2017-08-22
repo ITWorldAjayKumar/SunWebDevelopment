@@ -36,6 +36,8 @@ namespace DataContract
         public DateTime? EditedDate { get; set; }
         [DataMember]
         public bool IsActive { get; set; }
+        [DataMember]
+        public int? TotalRecord { get; set; }
     }
 
     [DataContract]
