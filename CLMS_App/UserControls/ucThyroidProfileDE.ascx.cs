@@ -14,7 +14,7 @@ namespace CLMS_App.UserControls
     public partial class ucThyroidProfileDE : System.Web.UI.UserControl
     {
         public static Guid _patientId = Guid.Empty;
-        DL_VitalSignsReports _objDL = new DL_VitalSignsReports();
+        DL_ThyroidProfileReports _objDL = new DL_ThyroidProfileReports();
         public static int intPageSize = 3;
         public static int intPageIndex = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -39,14 +39,14 @@ namespace CLMS_App.UserControls
             {
                 if (GetPatientID() != Guid.Empty)
                 {
-                    var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
-                    grdvwVitalSignRptDetails.DataSource = result;
+                    var result = _objDL.GetThyroidProfileReports(new DC_ThyroidProfileReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
+                    grdvwThyroidProfileDetails.DataSource = result;
                     if (result != null && result.Count > 0)
-                        grdvwVitalSignRptDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
+                        grdvwThyroidProfileDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
 
-                    grdvwVitalSignRptDetails.PageIndex = intPageIndex;
-                    grdvwVitalSignRptDetails.PageSize = intPageSize;
-                    grdvwVitalSignRptDetails.DataBind();
+                    grdvwThyroidProfileDetails.PageIndex = intPageIndex;
+                    grdvwThyroidProfileDetails.PageSize = intPageSize;
+                    grdvwThyroidProfileDetails.DataBind();
                 }
 
             }
@@ -61,11 +61,11 @@ namespace CLMS_App.UserControls
         {
             try
             {
-                List<DC_VitalSignsReports> _lstDC_VitalSignsReports = new List<DC_VitalSignsReports>();
-                DC_VitalSignsReports _objvsr = new DC_VitalSignsReports();
+                List<DC_ThyroidProfileReports> _lstDC_VitalSignsReports = new List<DC_ThyroidProfileReports>();
+                DC_ThyroidProfileReports _objvsr = new DC_ThyroidProfileReports();
                 _lstDC_VitalSignsReports.Add(_objvsr);
-                frmvwAddUpdateVitalSign.DataSource = _lstDC_VitalSignsReports;
-                frmvwAddUpdateVitalSign.DataBind();
+                frmvwAddUpdateThyroidProfile.DataSource = _lstDC_VitalSignsReports;
+                frmvwAddUpdateThyroidProfile.DataBind();
             }
             catch (Exception)
             {
@@ -74,92 +74,84 @@ namespace CLMS_App.UserControls
             }
         }
 
-        protected void frmvwAddUpdateVitalSign_ItemCommand(object sender, FormViewCommandEventArgs e)
+        protected void frmvwAddUpdateThyroidProfile_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
-            TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-            TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-            TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-            TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-            TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
 
-            if (e.CommandName == "AddVitalSign")
+            TextBox txtTestDate = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtTestDate");
+            TextBox txtFreeT3 = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtFreeT3");
+            TextBox txtFreeT4 = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtFreeT4");
+            TextBox txtTSH = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtTSH");
+
+            if (e.CommandName == "AddThyroidProfile")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
+                DC_ThyroidProfileReports _objAdd = new DC_ThyroidProfileReports();
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
                 _objAdd.PatientID = GetPatientID();
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.FreeT3  = txtFreeT3.Text;
+                _objAdd.FreeT4 = txtFreeT4.Text;
+                _objAdd.TSH = txtTSH.Text;
                 _objAdd.CreatedBy = "Ajay";
                 _objAdd.CreatedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateThyroidProfileReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateThyroidProfile.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-            if (e.CommandName == "UpdateVitalSign")
+            if (e.CommandName == "UpdateThyroidProfile")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
-                _objAdd.VSR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateVitalSign.DataKey.Value));
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
+                DC_ThyroidProfileReports _objAdd = new DC_ThyroidProfileReports();
+                _objAdd.TPR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateThyroidProfile.DataKey.Value));
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.PatientID = GetPatientID();
+                _objAdd.FreeT3 = txtFreeT3.Text;
+                _objAdd.FreeT4 = txtFreeT4.Text;
+                _objAdd.TSH = txtTSH.Text;
                 _objAdd.EditedBy = "Ajay";
                 _objAdd.EditedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateThyroidProfileReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateThyroidProfile.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-
         }
 
-
-
-        protected void grdvwVitalSignRptDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void grdvwThyroidProfileDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             intPageIndex = e.NewPageIndex;
             BindGridDetails();
         }
 
-        protected void grdvwVitalSignRptDetails_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void grdvwThyroidProfileDetails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "select")
             {
                 divmsg.Style.Add("display", "none");
-                frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Edit);
-                Guid VSR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
+                frmvwAddUpdateThyroidProfile.ChangeMode(FormViewMode.Edit);
+                Guid TPR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
 
-                var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { VSR_TestReportID = VSR_TestReportID, PageNo = 0, PageSize = 1 });
+                var result = _objDL.GetThyroidProfileReports(new DC_ThyroidProfileReports_Search() { TPR_TestReportID = TPR_TestReportID, PageNo = 0, PageSize = 1 });
                 if (result != null && result.Count > 0)
                 {
-                    frmvwAddUpdateVitalSign.DataSource = result;
-                    frmvwAddUpdateVitalSign.DataBind();
+                    frmvwAddUpdateThyroidProfile.DataSource = result;
+                    frmvwAddUpdateThyroidProfile.DataBind();
 
-                    TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-                    TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-                    TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-                    TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-                    TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
-
-
-
+                    TextBox txtTestDate = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtTestDate");
+                    TextBox txtFreeT3 = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtFreeT3");
+                    TextBox txtFreeT4 = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtFreeT4");
+                    TextBox txtTSH = (TextBox)frmvwAddUpdateThyroidProfile.FindControl("txtTSH");
+                    
                     txtTestDate.Text = result[0].TestDate.ToString("MMM-dd-yyyy");
-                    txtPulse.Text = Convert.ToString(result[0].Pulse);
-                    txtWeight.Text = result[0].Weight;
-                    txtSBP.Text = result[0].SBP;
-                    txtDBP.Text = result[0].DBP;
+                    txtFreeT3.Text =result[0].FreeT3;
+                    txtFreeT4.Text = result[0].FreeT4;
+                    txtTSH.Text = result[0].TSH;
                 }
 
             }
