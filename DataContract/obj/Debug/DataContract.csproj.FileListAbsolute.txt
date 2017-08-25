@@ -6,4 +6,8 @@ E:\Projects\Sun\SunWebDevelopment\DataContract\bin\Debug\DataContract.dll
 E:\Projects\Sun\SunWebDevelopment\DataContract\bin\Debug\DataContract.pdb
 E:\Projects\Sun\SunWebDevelopment\DataContract\obj\Debug\DataContract.dll
 E:\Projects\Sun\SunWebDevelopment\DataContract\obj\Debug\DataContract.pdb
-E:\Projects\Sun\SunWebDevelopment\DataContract\obj\Debug\DataContract.csprojResolveAssemblyReference.cache
+E:\Projects\SunWebDevelopment\DataContract\bin\Debug\DataContract.dll
+E:\Projects\SunWebDevelopment\DataContract\bin\Debug\DataContract.pdb
+E:\Projects\SunWebDevelopment\DataContract\obj\Debug\DataContract.csprojResolveAssemblyReference.cache
+E:\Projects\SunWebDevelopment\DataContract\obj\Debug\DataContract.dll
+E:\Projects\SunWebDevelopment\DataContract\obj\Debug\DataContract.pdb
