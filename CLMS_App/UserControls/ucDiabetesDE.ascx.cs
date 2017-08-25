@@ -14,7 +14,7 @@ namespace CLMS_App.UserControls
     public partial class ucDiabetesDE : System.Web.UI.UserControl
     {
         public static Guid _patientId = Guid.Empty;
-        DL_VitalSignsReports _objDL = new DL_VitalSignsReports();
+        DL_DiabetesReports _objDL = new DL_DiabetesReports();
         public static int intPageSize = 3;
         public static int intPageIndex = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -39,14 +39,14 @@ namespace CLMS_App.UserControls
             {
                 if (GetPatientID() != Guid.Empty)
                 {
-                    var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
-                    grdvwVitalSignRptDetails.DataSource = result;
+                    var result = _objDL.GetDiabetesReports(new DC_DiabetesReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
+                    grdvwDiabetesRptDetails.DataSource = result;
                     if (result != null && result.Count > 0)
-                        grdvwVitalSignRptDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
+                        grdvwDiabetesRptDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
 
-                    grdvwVitalSignRptDetails.PageIndex = intPageIndex;
-                    grdvwVitalSignRptDetails.PageSize = intPageSize;
-                    grdvwVitalSignRptDetails.DataBind();
+                    grdvwDiabetesRptDetails.PageIndex = intPageIndex;
+                    grdvwDiabetesRptDetails.PageSize = intPageSize;
+                    grdvwDiabetesRptDetails.DataBind();
                 }
 
             }
@@ -64,8 +64,8 @@ namespace CLMS_App.UserControls
                 List<DC_VitalSignsReports> _lstDC_VitalSignsReports = new List<DC_VitalSignsReports>();
                 DC_VitalSignsReports _objvsr = new DC_VitalSignsReports();
                 _lstDC_VitalSignsReports.Add(_objvsr);
-                frmvwAddUpdateVitalSign.DataSource = _lstDC_VitalSignsReports;
-                frmvwAddUpdateVitalSign.DataBind();
+                frmvwAddUpdateDiabetes.DataSource = _lstDC_VitalSignsReports;
+                frmvwAddUpdateDiabetes.DataBind();
             }
             catch (Exception)
             {
@@ -74,51 +74,48 @@ namespace CLMS_App.UserControls
             }
         }
 
-        protected void frmvwAddUpdateVitalSign_ItemCommand(object sender, FormViewCommandEventArgs e)
+        protected void frmvwAddUpdateDiabetes_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
-            TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-            TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-            TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-            TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-            TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+            TextBox txtTestDate = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtTestDate");
+            TextBox txtFBS = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtFBS");
+            TextBox txtPPBS = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtPPBS");
+            TextBox txtHBAIC = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtHBAIC");
 
-            if (e.CommandName == "AddVitalSign")
+            if (e.CommandName == "AddDiabetes")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
+                DC_DiabetesReports _objAdd = new DC_DiabetesReports();
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
                 _objAdd.PatientID = GetPatientID();
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.FBS = txtFBS.Text;
+                _objAdd.PPBS = txtPPBS.Text;
+                _objAdd.HBAIC = txtHBAIC.Text;
                 _objAdd.CreatedBy = "Ajay";
                 _objAdd.CreatedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateDiabetesReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateDiabetes.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-            if (e.CommandName == "UpdateVitalSign")
+            if (e.CommandName == "UpdateDiabetes")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
-                _objAdd.VSR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateVitalSign.DataKey.Value));
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
+                DC_DiabetesReports _objAdd = new DC_DiabetesReports();
+                _objAdd.DIR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateDiabetes.DataKey.Value));
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.FBS = txtFBS.Text;
+                _objAdd.PPBS = txtPPBS.Text;
+                _objAdd.HBAIC = txtHBAIC.Text;
                 _objAdd.EditedBy = "Ajay";
                 _objAdd.EditedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateDiabetesReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateDiabetes.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
@@ -126,43 +123,43 @@ namespace CLMS_App.UserControls
         }
 
 
-        protected void grdvwVitalSignRptDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void grdvwDiabetesRptDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             intPageIndex = e.NewPageIndex;
             BindGridDetails();
         }
 
-        protected void grdvwVitalSignRptDetails_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void grdvwDiabetesRptDetails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "select")
             {
                 divmsg.Style.Add("display", "none");
-                frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Edit);
-                Guid VSR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
+                frmvwAddUpdateDiabetes.ChangeMode(FormViewMode.Edit);
+                Guid DIR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
 
-                var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { VSR_TestReportID = VSR_TestReportID, PageNo = 0, PageSize = 1 });
+                var result = _objDL.GetDiabetesReports(new DC_DiabetesReports_Search() { DIR_TestReportID = DIR_TestReportID, PageNo = 0, PageSize = 1 });
                 if (result != null && result.Count > 0)
                 {
-                    frmvwAddUpdateVitalSign.DataSource = result;
-                    frmvwAddUpdateVitalSign.DataBind();
+                    frmvwAddUpdateDiabetes.DataSource = result;
+                    frmvwAddUpdateDiabetes.DataBind();
 
-                    TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-                    TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-                    TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-                    TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-                    TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+                    TextBox txtTestDate = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtTestDate");
+                    TextBox txtFBS = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtFBS");
+                    TextBox txtPPBS = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtPPBS");
+                    TextBox txtHBAIC = (TextBox)frmvwAddUpdateDiabetes.FindControl("txtHBAIC");
 
 
 
                     txtTestDate.Text = result[0].TestDate.ToString("MMM-dd-yyyy");
-                    txtPulse.Text = Convert.ToString(result[0].Pulse);
-                    txtWeight.Text = result[0].Weight;
-                    txtSBP.Text = result[0].SBP;
-                    txtDBP.Text = result[0].DBP;
+                    txtFBS.Text = Convert.ToString(result[0].FBS);
+                    txtPPBS.Text = result[0].PPBS;
+                    txtHBAIC.Text = result[0].HBAIC;
                 }
 
             }
 
         }
+
+
     }
 }

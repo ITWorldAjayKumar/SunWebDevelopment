@@ -12,18 +12,18 @@ namespace DataLayer.Reports
     {
         public void Dispose()
         { }
-        public List<DC_VitalSignsReports> GetVitalSingsReports(DC_VitalSignsReports_Search _objSearch)
+        public List<DC_DiabetesReports> GetDiabetesReports(DC_DiabetesReports_Search _objSearch)
         {
             try
             {
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
-                    var search = from x in context.tbl_VitalSignsReports select x;
+                    var search = from x in context.tbl_DiabetesReports select x;
 
                     if (_objSearch.PatientID.HasValue)
                         search = from x in search where x.PatientID == _objSearch.PatientID.Value select x;
-                    if (_objSearch.VSR_TestReportID.HasValue)
-                        search = from x in search where x.VSR_TestReportID == _objSearch.VSR_TestReportID.Value select x;
+                    if (_objSearch.DIR_TestReportID.HasValue)
+                        search = from x in search where x.DIR_TestReportID == _objSearch.DIR_TestReportID.Value select x;
 
                     int total;
                     total = search.Count();
@@ -36,20 +36,19 @@ namespace DataLayer.Reports
 
                     var result = (from rs in search
                                   orderby rs.TestDate
-                                  select new DC_VitalSignsReports
+                                  select new DC_DiabetesReports
                                   {
-                                      VSR_TestReportID = rs.VSR_TestReportID,
-                                      Weight = rs.Weight.ToString(),
-                                      DBP = rs.DBP,
+                                      DIR_TestReportID = rs.DIR_TestReportID,
                                       PatientID = rs.PatientID,
-                                      Pulse = rs.Pulse,
-                                      SBP = rs.SBP,
                                       TestDate = rs.TestDate,
                                       CreatedBy = rs.CreatedBy,
                                       CreatedDate = rs.CreatedDate,
                                       EditedBy = rs.EditedBy,
                                       EditedDate = rs.EditedDate,
                                       IsActive = rs.IsActive ?? false,
+                                      FBS = rs.FBS,
+                                      PPBS = rs.PPBS,
+                                      HBAIC = rs.HBAIC,
                                       TotalRecord = total
                                   });
                     return result.OrderByDescending(p => p.TestDate).Skip(skip).Take((_objSearch.PageSize ?? total)).ToList();
@@ -61,7 +60,7 @@ namespace DataLayer.Reports
                 throw;
             }
         }
-        public DC_Message AddUpdateVitalSingsReports(DC_VitalSignsReports _objSave)
+        public DC_Message AddUpdateDiabetesReports(DC_DiabetesReports _objSave)
         {
             DC_Message _msg = new DC_Message();
             try
@@ -69,10 +68,10 @@ namespace DataLayer.Reports
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
 
-                    if (_objSave.VSR_TestReportID != null && _objSave.VSR_TestReportID != Guid.Empty)
+                    if (_objSave.DIR_TestReportID != null && _objSave.DIR_TestReportID != Guid.Empty)
                     {
-                        var isDuplicate = (from x in context.tbl_VitalSignsReports
-                                           where x.VSR_TestReportID != _objSave.VSR_TestReportID
+                        var isDuplicate = (from x in context.tbl_DiabetesReports
+                                           where x.DIR_TestReportID != _objSave.DIR_TestReportID
                                            && x.PatientID == x.PatientID && x.TestDate == _objSave.TestDate
                                            select x).Count() == 0 ? false : true;
 
@@ -82,7 +81,7 @@ namespace DataLayer.Reports
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Duplicate;
                             return _msg;
                         }
-                        var report = context.tbl_VitalSignsReports.Find(_objSave.VSR_TestReportID);
+                        var report = context.tbl_DiabetesReports.Find(_objSave.DIR_TestReportID);
 
                         if (report != null)
                         {
@@ -90,44 +89,42 @@ namespace DataLayer.Reports
                             report.IsActive = _objSave.IsActive;
                             report.EditedBy = _objSave.EditedBy;
                             report.EditedDate = _objSave.EditedDate;
-                            report.Pulse = _objSave.Pulse;
-                            report.SBP = _objSave.SBP;
-                            report.DBP = _objSave.DBP;
-                            report.Weight = Convert.ToDecimal(_objSave.Weight);
+                            report.FBS = _objSave.FBS;
+                            report.PPBS = _objSave.PPBS;
+                            report.HBAIC = _objSave.HBAIC;
                             if (context.SaveChanges() == 1)
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strUpdatedSuccessfully;
+                                _msg.StatusMessage = "Diabetes report has been" + ReadOnlyMessage.strUpdatedSuccessfully;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                             }
                             else
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                                _msg.StatusMessage = "Diabetes report has been" + ReadOnlyMessage.strFailed;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                             }
                         }
                         else
                         {
-                            tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                            _objnew.VSR_TestReportID = Guid.NewGuid();
+                            tbl_DiabetesReports _objnew = new tbl_DiabetesReports();
+                            _objnew.DIR_TestReportID = Guid.NewGuid();
                             _objnew.PatientID = _objSave.PatientID;
                             _objnew.CreatedBy = _objSave.CreatedBy;
                             _objnew.CreatedDate = _objSave.CreatedDate;
-                            _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                            _objnew.SBP = _objSave.SBP;
-                            _objnew.DBP = _objSave.DBP;
-                            _objnew.Pulse = _objSave.Pulse;
+                            _objnew.FBS = _objSave.FBS;
+                            _objnew.PPBS = _objSave.PPBS;
+                            _objnew.HBAIC = _objSave.HBAIC;
                             _objnew.IsActive = _objSave.IsActive;
                             _objnew.TestDate = _objSave.TestDate;
 
-                            context.tbl_VitalSignsReports.Add(_objnew);
+                            context.tbl_DiabetesReports.Add(_objnew);
                             if (context.SaveChanges() == 1)
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
+                                _msg.StatusMessage = "Diabetes report has been" + ReadOnlyMessage.strAddedSuccessfully;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                             }
                             else
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                                _msg.StatusMessage = "Diabetes report has been" + ReadOnlyMessage.strFailed;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                             }
                         }
@@ -135,27 +132,26 @@ namespace DataLayer.Reports
                     }
                     else
                     {
-                        tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                        _objnew.VSR_TestReportID = Guid.NewGuid();
+                        tbl_DiabetesReports _objnew = new tbl_DiabetesReports();
+                        _objnew.DIR_TestReportID = Guid.NewGuid();
                         _objnew.PatientID = _objSave.PatientID;
                         _objnew.CreatedBy = _objSave.CreatedBy;
                         _objnew.CreatedDate = _objSave.CreatedDate;
-                        _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                        _objnew.SBP = _objSave.SBP;
-                        _objnew.DBP = _objSave.DBP;
-                        _objnew.Pulse = _objSave.Pulse;
+                        _objnew.FBS = _objSave.FBS;
+                        _objnew.PPBS = _objSave.PPBS;
+                        _objnew.HBAIC = _objSave.HBAIC;
                         _objnew.IsActive = _objSave.IsActive;
                         _objnew.TestDate = _objSave.TestDate;
 
-                        context.tbl_VitalSignsReports.Add(_objnew);
+                        context.tbl_DiabetesReports.Add(_objnew);
                         if (context.SaveChanges() == 1)
                         {
-                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
+                            _msg.StatusMessage = "Diabetes report has been" + ReadOnlyMessage.strAddedSuccessfully;
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                         }
                         else
                         {
-                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                            _msg.StatusMessage = "Diabetes report has been" + ReadOnlyMessage.strFailed;
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                         }
                     }

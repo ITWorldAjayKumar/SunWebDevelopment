@@ -12,18 +12,18 @@ namespace DataLayer.Reports
     {
         public void Dispose()
         { }
-        public List<DC_VitalSignsReports> GetVitalSingsReports(DC_VitalSignsReports_Search _objSearch)
+        public List<DC_KidneyFunctionsReports> GetKidneyFunctionsReports(DC_KidneyFunctionsReports_Search _objSearch)
         {
             try
             {
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
-                    var search = from x in context.tbl_VitalSignsReports select x;
+                    var search = from x in context.tbl_KidneyFunctionsReports select x;
 
                     if (_objSearch.PatientID.HasValue)
                         search = from x in search where x.PatientID == _objSearch.PatientID.Value select x;
-                    if (_objSearch.VSR_TestReportID.HasValue)
-                        search = from x in search where x.VSR_TestReportID == _objSearch.VSR_TestReportID.Value select x;
+                    if (_objSearch.KFR_TestReportID.HasValue)
+                        search = from x in search where x.KFR_TestReportID == _objSearch.KFR_TestReportID.Value select x;
 
                     int total;
                     total = search.Count();
@@ -36,14 +36,14 @@ namespace DataLayer.Reports
 
                     var result = (from rs in search
                                   orderby rs.TestDate
-                                  select new DC_VitalSignsReports
+                                  select new DC_KidneyFunctionsReports
                                   {
-                                      VSR_TestReportID = rs.VSR_TestReportID,
-                                      Weight = rs.Weight.ToString(),
-                                      DBP = rs.DBP,
-                                      PatientID = rs.PatientID,
-                                      Pulse = rs.Pulse,
-                                      SBP = rs.SBP,
+                                      KFR_TestReportID = rs.KFR_TestReportID,
+                                      SCreatinine = rs.SCreatinine,
+                                      UrineACR = rs.UrineACR,
+                                      Urea = rs.Urea,
+                                      Bun = rs.Bun,
+                                      SUricAcid = rs.SUricAcid,
                                       TestDate = rs.TestDate,
                                       CreatedBy = rs.CreatedBy,
                                       CreatedDate = rs.CreatedDate,
@@ -61,7 +61,7 @@ namespace DataLayer.Reports
                 throw;
             }
         }
-        public DC_Message AddUpdateVitalSingsReports(DC_VitalSignsReports _objSave)
+        public DC_Message AddUpdateKidneyFunctionsReports(DC_KidneyFunctionsReports _objSave)
         {
             DC_Message _msg = new DC_Message();
             try
@@ -69,10 +69,10 @@ namespace DataLayer.Reports
                 using (CLMS_DBEntities context = new CLMS_DBEntities())
                 {
 
-                    if (_objSave.VSR_TestReportID != null && _objSave.VSR_TestReportID != Guid.Empty)
+                    if (_objSave.KFR_TestReportID != null && _objSave.KFR_TestReportID != Guid.Empty)
                     {
-                        var isDuplicate = (from x in context.tbl_VitalSignsReports
-                                           where x.VSR_TestReportID != _objSave.VSR_TestReportID
+                        var isDuplicate = (from x in context.tbl_KidneyFunctionsReports
+                                           where x.KFR_TestReportID != _objSave.KFR_TestReportID
                                            && x.PatientID == x.PatientID && x.TestDate == _objSave.TestDate
                                            select x).Count() == 0 ? false : true;
 
@@ -82,7 +82,7 @@ namespace DataLayer.Reports
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Duplicate;
                             return _msg;
                         }
-                        var report = context.tbl_VitalSignsReports.Find(_objSave.VSR_TestReportID);
+                        var report = context.tbl_KidneyFunctionsReports.Find(_objSave.KFR_TestReportID);
 
                         if (report != null)
                         {
@@ -90,44 +90,47 @@ namespace DataLayer.Reports
                             report.IsActive = _objSave.IsActive;
                             report.EditedBy = _objSave.EditedBy;
                             report.EditedDate = _objSave.EditedDate;
-                            report.Pulse = _objSave.Pulse;
-                            report.SBP = _objSave.SBP;
-                            report.DBP = _objSave.DBP;
-                            report.Weight = Convert.ToDecimal(_objSave.Weight);
+                            report.KFR_TestReportID = _objSave.KFR_TestReportID;
+                            report.SCreatinine = _objSave.SCreatinine;
+                            report.UrineACR = _objSave.UrineACR;
+                            report.Urea = _objSave.Urea;
+                            report.Bun = _objSave.Bun;
+                            report.SUricAcid = _objSave.SUricAcid;
                             if (context.SaveChanges() == 1)
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strUpdatedSuccessfully;
+                                _msg.StatusMessage = "Kidney Function Report has been" + ReadOnlyMessage.strUpdatedSuccessfully;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                             }
                             else
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                                _msg.StatusMessage = "Kidney Function Report has been" + ReadOnlyMessage.strFailed;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                             }
                         }
                         else
                         {
-                            tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                            _objnew.VSR_TestReportID = Guid.NewGuid();
+                            tbl_KidneyFunctionsReports _objnew = new tbl_KidneyFunctionsReports();
+                            _objnew.KFR_TestReportID = Guid.NewGuid();
                             _objnew.PatientID = _objSave.PatientID;
+                            _objnew.TestDate = _objSave.TestDate;
                             _objnew.CreatedBy = _objSave.CreatedBy;
                             _objnew.CreatedDate = _objSave.CreatedDate;
-                            _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                            _objnew.SBP = _objSave.SBP;
-                            _objnew.DBP = _objSave.DBP;
-                            _objnew.Pulse = _objSave.Pulse;
-                            _objnew.IsActive = _objSave.IsActive;
-                            _objnew.TestDate = _objSave.TestDate;
+                            _objnew.KFR_TestReportID = _objSave.KFR_TestReportID;
+                            _objnew.SCreatinine = _objSave.SCreatinine;
+                            _objnew.UrineACR = _objSave.UrineACR;
+                            _objnew.Urea = _objSave.Urea;
+                            _objnew.Bun = _objSave.Bun;
+                            _objnew.SUricAcid = _objSave.SUricAcid;
 
-                            context.tbl_VitalSignsReports.Add(_objnew);
+                            context.tbl_KidneyFunctionsReports.Add(_objnew);
                             if (context.SaveChanges() == 1)
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
+                                _msg.StatusMessage = "Kidney Function Report has been" + ReadOnlyMessage.strAddedSuccessfully;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                             }
                             else
                             {
-                                _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                                _msg.StatusMessage = "Kidney Function Report has been" + ReadOnlyMessage.strFailed;
                                 _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                             }
                         }
@@ -135,27 +138,28 @@ namespace DataLayer.Reports
                     }
                     else
                     {
-                        tbl_VitalSignsReports _objnew = new tbl_VitalSignsReports();
-                        _objnew.VSR_TestReportID = Guid.NewGuid();
+                        tbl_KidneyFunctionsReports _objnew = new tbl_KidneyFunctionsReports();
+                        _objnew.KFR_TestReportID = Guid.NewGuid();
                         _objnew.PatientID = _objSave.PatientID;
                         _objnew.CreatedBy = _objSave.CreatedBy;
                         _objnew.CreatedDate = _objSave.CreatedDate;
-                        _objnew.Weight = Convert.ToDecimal(_objSave.Weight);
-                        _objnew.SBP = _objSave.SBP;
-                        _objnew.DBP = _objSave.DBP;
-                        _objnew.Pulse = _objSave.Pulse;
-                        _objnew.IsActive = _objSave.IsActive;
                         _objnew.TestDate = _objSave.TestDate;
+                        _objnew.KFR_TestReportID = _objSave.KFR_TestReportID;
+                        _objnew.SCreatinine = _objSave.SCreatinine;
+                        _objnew.UrineACR = _objSave.UrineACR;
+                        _objnew.Urea = _objSave.Urea;
+                        _objnew.Bun = _objSave.Bun;
+                        _objnew.SUricAcid = _objSave.SUricAcid;
 
-                        context.tbl_VitalSignsReports.Add(_objnew);
+                        context.tbl_KidneyFunctionsReports.Add(_objnew);
                         if (context.SaveChanges() == 1)
                         {
-                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strAddedSuccessfully;
+                            _msg.StatusMessage = "Kidney Function Report has been" + ReadOnlyMessage.strAddedSuccessfully;
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
                         }
                         else
                         {
-                            _msg.StatusMessage = "Vital Sign has been" + ReadOnlyMessage.strFailed;
+                            _msg.StatusMessage = "Kidney Function Report has been" + ReadOnlyMessage.strFailed;
                             _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
                         }
                     }
