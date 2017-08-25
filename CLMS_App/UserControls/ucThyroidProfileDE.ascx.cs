@@ -152,6 +152,8 @@ namespace CLMS_App.UserControls
                     txtFreeT3.Text =result[0].FreeT3;
                     txtFreeT4.Text = result[0].FreeT4;
                     txtTSH.Text = result[0].TSH;
+
+
                 }
 
             }
