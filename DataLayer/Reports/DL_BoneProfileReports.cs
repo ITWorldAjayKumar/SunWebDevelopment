@@ -165,5 +165,6 @@ namespace DataLayer.Reports
             catch (Exception ex) { }
             return _msg;
         }
+        public void Test() { }
     }
 }
