@@ -14,7 +14,7 @@ namespace CLMS_App.UserControls
     public partial class ucUrineDE : System.Web.UI.UserControl
     {
         public static Guid _patientId = Guid.Empty;
-        DL_VitalSignsReports _objDL = new DL_VitalSignsReports();
+        DL_UrineReports _objDL = new DL_UrineReports();
         public static int intPageSize = 3;
         public static int intPageIndex = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -39,14 +39,14 @@ namespace CLMS_App.UserControls
             {
                 if (GetPatientID() != Guid.Empty)
                 {
-                    var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
-                    grdvwVitalSignRptDetails.DataSource = result;
+                    var result = _objDL.GetUrineReports(new DC_UrineReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
+                    grdvwUrinProfileDetails.DataSource = result;
                     if (result != null && result.Count > 0)
-                        grdvwVitalSignRptDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
+                        grdvwUrinProfileDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
 
-                    grdvwVitalSignRptDetails.PageIndex = intPageIndex;
-                    grdvwVitalSignRptDetails.PageSize = intPageSize;
-                    grdvwVitalSignRptDetails.DataBind();
+                    grdvwUrinProfileDetails.PageIndex = intPageIndex;
+                    grdvwUrinProfileDetails.PageSize = intPageSize;
+                    grdvwUrinProfileDetails.DataBind();
                 }
 
             }
@@ -61,11 +61,11 @@ namespace CLMS_App.UserControls
         {
             try
             {
-                List<DC_VitalSignsReports> _lstDC_VitalSignsReports = new List<DC_VitalSignsReports>();
-                DC_VitalSignsReports _objvsr = new DC_VitalSignsReports();
+                List<DC_UrineReports> _lstDC_VitalSignsReports = new List<DC_UrineReports>();
+                DC_UrineReports _objvsr = new DC_UrineReports();
                 _lstDC_VitalSignsReports.Add(_objvsr);
-                frmvwAddUpdateVitalSign.DataSource = _lstDC_VitalSignsReports;
-                frmvwAddUpdateVitalSign.DataBind();
+                grdvwUrinProfileDetails.DataSource = _lstDC_VitalSignsReports;
+                grdvwUrinProfileDetails.DataBind();
             }
             catch (Exception)
             {
@@ -74,96 +74,98 @@ namespace CLMS_App.UserControls
             }
         }
 
-        protected void frmvwAddUpdateVitalSign_ItemCommand(object sender, FormViewCommandEventArgs e)
-        {
-            TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-            TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-            TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-            TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-            TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+   
 
-            if (e.CommandName == "AddVitalSign")
+
+      
+
+        protected void frmvwAddUpdateUrineDEVitalSign_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+
+            TextBox txtTestDate = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtTestDate");
+            TextBox txtAlbumin = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtAlbumin");
+            TextBox txtCreatine = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtCreatine");
+            TextBox txtACR = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtACR");
+            //TextBox txtDBP = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtDBP");
+
+            if (e.CommandName == "AddUrinProfile")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
+                DC_UrineReports _objAdd = new DC_UrineReports();
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
                 _objAdd.PatientID = GetPatientID();
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.Albumin = Convert.ToString(txtAlbumin.Text);
+                _objAdd.Creatine = txtCreatine.Text;
+                _objAdd.ACR = txtACR.Text;
+                //  _objAdd.DBP = txtDBP.Text;
                 _objAdd.CreatedBy = "Ajay";
                 _objAdd.CreatedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateUrineReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateUrineDEVitalSign.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-            if (e.CommandName == "UpdateVitalSign")
+            if (e.CommandName == "UpdateUrinProfile")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
-                _objAdd.VSR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateVitalSign.DataKey.Value));
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
+                DC_UrineReports _objAdd = new DC_UrineReports();
+                _objAdd.UR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateUrineDEVitalSign.DataKey.Value));
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.Albumin = Convert.ToString(txtAlbumin.Text);
+                _objAdd.Creatine = txtCreatine.Text;
+                _objAdd.ACR = txtACR.Text;
                 _objAdd.EditedBy = "Ajay";
                 _objAdd.EditedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateUrineReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateUrineDEVitalSign.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-
         }
 
-
-
-        protected void grdvwVitalSignRptDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void grdvwUrinProfileDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             intPageIndex = e.NewPageIndex;
             BindGridDetails();
         }
 
-        protected void grdvwVitalSignRptDetails_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void grdvwUrinProfileDetails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
+            
             if (e.CommandName == "select")
             {
                 divmsg.Style.Add("display", "none");
-                frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Edit);
-                Guid VSR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
+                frmvwAddUpdateUrineDEVitalSign.ChangeMode(FormViewMode.Edit);
+                Guid UR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
 
-                var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { VSR_TestReportID = VSR_TestReportID, PageNo = 0, PageSize = 1 });
+                var result = _objDL.GetUrineReports(new DC_UrineReports_Search() { UR_TestReportID = UR_TestReportID, PageNo = 0, PageSize = 1 });
                 if (result != null && result.Count > 0)
                 {
-                    frmvwAddUpdateVitalSign.DataSource = result;
-                    frmvwAddUpdateVitalSign.DataBind();
+                    frmvwAddUpdateUrineDEVitalSign.DataSource = result;
+                    frmvwAddUpdateUrineDEVitalSign.DataBind();
 
-                    TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-                    TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-                    TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-                    TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-                    TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+                   
+                    TextBox txtTestDate = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtTestDate");
+                    TextBox txtAlbumin = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtAlbumin");
+                    TextBox txtCreatine = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtCreatine");
+                    TextBox txtACR = (TextBox)frmvwAddUpdateUrineDEVitalSign.FindControl("txtACR");
 
 
 
                     txtTestDate.Text = result[0].TestDate.ToString("MMM-dd-yyyy");
-                    txtPulse.Text = Convert.ToString(result[0].Pulse);
-                    txtWeight.Text = result[0].Weight;
-                    txtSBP.Text = result[0].SBP;
-                    txtDBP.Text = result[0].DBP;
+                    txtAlbumin.Text = result[0].Albumin;
+                    txtCreatine.Text = result[0].Creatine;
+                    txtACR.Text = result[0].ACR;
+
                 }
 
             }
-
         }
     }
 }
