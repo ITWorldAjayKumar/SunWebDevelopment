@@ -14,7 +14,7 @@ namespace CLMS_App.UserControls
     public partial class ucBoneProfileDE : System.Web.UI.UserControl
     {
         public static Guid _patientId = Guid.Empty;
-        DL_VitalSignsReports _objDL = new DL_VitalSignsReports();
+        DL_BoneProfileReports _objDL = new DL_BoneProfileReports();
         public static int intPageSize = 3;
         public static int intPageIndex = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -39,14 +39,14 @@ namespace CLMS_App.UserControls
             {
                 if (GetPatientID() != Guid.Empty)
                 {
-                    var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
-                    grdvwVitalSignRptDetails.DataSource = result;
+                    var result = _objDL.GetBoneProfileReports(new DC_BoneProfileReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
+                    grdvwBoneProfileDetails.DataSource = result;
                     if (result != null && result.Count > 0)
-                        grdvwVitalSignRptDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
+                        grdvwBoneProfileDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
 
-                    grdvwVitalSignRptDetails.PageIndex = intPageIndex;
-                    grdvwVitalSignRptDetails.PageSize = intPageSize;
-                    grdvwVitalSignRptDetails.DataBind();
+                    grdvwBoneProfileDetails.PageSize = intPageSize;
+                    grdvwBoneProfileDetails.PageIndex = intPageIndex;
+                    grdvwBoneProfileDetails.DataBind();
                 }
 
             }
@@ -64,8 +64,8 @@ namespace CLMS_App.UserControls
                 List<DC_VitalSignsReports> _lstDC_VitalSignsReports = new List<DC_VitalSignsReports>();
                 DC_VitalSignsReports _objvsr = new DC_VitalSignsReports();
                 _lstDC_VitalSignsReports.Add(_objvsr);
-                frmvwAddUpdateVitalSign.DataSource = _lstDC_VitalSignsReports;
-                frmvwAddUpdateVitalSign.DataBind();
+                frmvwAddUpdateBoneProfile.DataSource = _lstDC_VitalSignsReports;
+                frmvwAddUpdateBoneProfile.DataBind();
             }
             catch (Exception)
             {
@@ -74,51 +74,56 @@ namespace CLMS_App.UserControls
             }
         }
 
-        protected void frmvwAddUpdateVitalSign_ItemCommand(object sender, FormViewCommandEventArgs e)
+        protected void frmvwAddUpdateBoneProfile_ItemCommand(object sender, FormViewCommandEventArgs e)
         {
-            TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-            TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-            TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-            TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-            TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+            TextBox txtTestDate = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtTestDate");
+            TextBox txtVitaminD = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtVitaminD");
+            TextBox txtParathyroidHormone = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtParathyroidHormone");
+            TextBox txtCalcium = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtCalcium");
+            TextBox txtMagnesium = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtMagnesium");
+            TextBox txtNeutrophils = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtNeutrophils");
 
-            if (e.CommandName == "AddVitalSign")
+
+            if (e.CommandName == "AddBoneProfile")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
+                DC_BoneProfileReports _objAdd = new DC_BoneProfileReports();
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
                 _objAdd.PatientID = GetPatientID();
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.VitaminD = txtVitaminD.Text;
+                _objAdd.ParathyroidHormone = txtParathyroidHormone.Text;
+                _objAdd.Calcium = txtCalcium.Text;
+                _objAdd.Magnesium = txtMagnesium.Text;
+                _objAdd.Neutrophils = txtNeutrophils.Text;
                 _objAdd.CreatedBy = "Ajay";
                 _objAdd.CreatedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateBoneProfileReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateBoneProfile.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-            if (e.CommandName == "UpdateVitalSign")
+            if (e.CommandName == "UpdateBoneProfile")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
-                _objAdd.VSR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateVitalSign.DataKey.Value));
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
+                DC_BoneProfileReports _objAdd = new DC_BoneProfileReports();
+                _objAdd.BPR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateBoneProfile.DataKey.Value));
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.PatientID = GetPatientID();
+                _objAdd.VitaminD = txtVitaminD.Text;
+                _objAdd.ParathyroidHormone = txtParathyroidHormone.Text;
+                _objAdd.Calcium = txtCalcium.Text;
+                _objAdd.Magnesium = txtMagnesium.Text;
+                _objAdd.Neutrophils = txtNeutrophils.Text;
                 _objAdd.EditedBy = "Ajay";
                 _objAdd.EditedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateBoneProfileReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateBoneProfile.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
@@ -127,43 +132,47 @@ namespace CLMS_App.UserControls
 
 
 
-        protected void grdvwVitalSignRptDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
+
+
+        protected void grdvwBoneProfileDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             intPageIndex = e.NewPageIndex;
             BindGridDetails();
         }
 
-        protected void grdvwVitalSignRptDetails_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void grdvwBoneProfileDetails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "select")
             {
                 divmsg.Style.Add("display", "none");
-                frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Edit);
-                Guid VSR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
+                frmvwAddUpdateBoneProfile.ChangeMode(FormViewMode.Edit);
+                Guid BPR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
 
-                var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { VSR_TestReportID = VSR_TestReportID, PageNo = 0, PageSize = 1 });
+                var result = _objDL.GetBoneProfileReports(new DC_BoneProfileReports_Search() { BPR_TestReportID = BPR_TestReportID, PageNo = 0, PageSize = 1 });
                 if (result != null && result.Count > 0)
                 {
-                    frmvwAddUpdateVitalSign.DataSource = result;
-                    frmvwAddUpdateVitalSign.DataBind();
-
-                    TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-                    TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-                    TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-                    TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-                    TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+                    frmvwAddUpdateBoneProfile.DataSource = result;
+                    frmvwAddUpdateBoneProfile.DataBind();
+                    TextBox txtTestDate = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtTestDate");
+                    TextBox txtVitaminD = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtVitaminD");
+                    TextBox txtParathyroidHormone = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtParathyroidHormone");
+                    TextBox txtCalcium = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtCalcium");
+                    TextBox txtMagnesium = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtMagnesium");
+                    TextBox txtNeutrophils = (TextBox)frmvwAddUpdateBoneProfile.FindControl("txtNeutrophils");
 
 
 
                     txtTestDate.Text = result[0].TestDate.ToString("MMM-dd-yyyy");
-                    txtPulse.Text = Convert.ToString(result[0].Pulse);
-                    txtWeight.Text = result[0].Weight;
-                    txtSBP.Text = result[0].SBP;
-                    txtDBP.Text = result[0].DBP;
+                    txtVitaminD.Text = result[0].VitaminD;
+                    txtParathyroidHormone.Text = result[0].ParathyroidHormone;
+                    txtCalcium.Text = result[0].Calcium;
+                    txtMagnesium.Text = result[0].Magnesium;
+                    txtNeutrophils.Text = result[0].Neutrophils;
+
                 }
 
             }
-
         }
+
     }
 }

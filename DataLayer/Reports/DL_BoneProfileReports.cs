@@ -44,6 +44,7 @@ namespace DataLayer.Reports
                                       PatientID = rs.PatientID,
                                       Calcium = rs.Calcium,
                                       Magnesium = rs.Magnesium,
+                                      Neutrophils = rs.Neutrophils,
                                       TestDate = rs.TestDate,
                                       CreatedBy = rs.CreatedBy,
                                       CreatedDate = rs.CreatedDate,

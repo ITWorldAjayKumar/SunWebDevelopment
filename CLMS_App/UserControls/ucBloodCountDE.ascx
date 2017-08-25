@@ -45,8 +45,8 @@
 <div class="col-md-12">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div id="divmsg" runat="server" ></div>
-            <asp:FormView runat="server" ID="frmvwAddUpdateVitalSign" CssClass="fullwidth" DataKeyNames="VSR_TestReportID" OnItemCommand="frmvwAddUpdateVitalSign_ItemCommand" DefaultMode="Insert">
+            <div id="divmsg" runat="server"></div>
+            <asp:FormView runat="server" ID="frmvwAddUpdateBloodCount" CssClass="fullwidth" DataKeyNames="BCR_TestReportID" OnItemCommand="frmvwAddUpdateBloodCount_ItemCommand" DefaultMode="Insert">
                 <InsertItemTemplate>
                     <div class="panel panel-default">
                         <div class="panel-heading">Add Update Blood Count</div>
@@ -60,35 +60,78 @@
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-4">Pulse</label>
+                                        <label class="col-md-4">CBC</label>
                                         <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="Pulse" CssClass="form-control" ID="txtPulse" ClientIDMode="Static"></asp:TextBox>
+                                            <asp:TextBox runat="server" placeholder="CBC" CssClass="form-control" ID="txtCBC" ClientIDMode="Static"></asp:TextBox>
                                         </div>
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-4">Weight</label>
+                                        <label class="col-md-4">WBC</label>
                                         <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="Weight" CssClass="form-control" ID="txtWeight" ClientIDMode="Static"></asp:TextBox>
+                                            <asp:TextBox runat="server" placeholder="WBC" CssClass="form-control" ID="txtWBC" ClientIDMode="Static"></asp:TextBox>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group row">
-                                        <label class="col-md-4">S BP</label>
+                                        <label class="col-md-4">PLATELET</label>
                                         <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="S BP" ID="txtSBP" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                            <asp:TextBox runat="server" placeholder="PLATELET" ID="txtPLATELET" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                         </div>
 
                                     </div>
                                     <div class="form-group row">
-                                        <label class="col-md-4">D SP</label>
+                                        <label class="col-md-4">MCV</label>
                                         <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="D BP" ID="txtDBP" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                            <asp:TextBox runat="server" placeholder="MCV" ID="txtMCV" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Neutrophils</label>
+                                        <div class="col-md-8">
+                                            <asp:TextBox runat="server" placeholder="Neutrophils" ID="txtNeutrophils" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Lymphocytes</label>
+                                        <div class="col-md-8">
+                                            <asp:TextBox runat="server" placeholder="Lymphocytes" ID="txtLymphocytes" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Eosinophil</label>
+                                        <div class="col-md-8">
+                                            <asp:TextBox runat="server" placeholder="Eosinophil" ID="txtEosinophil" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Monocytes</label>
+                                        <div class="col-md-8">
+                                            <asp:TextBox runat="server" placeholder="Monocytes" ID="txtMonocytes" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+
+                                        </div>
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">Basophils</label>
+                                        <div class="col-md-8">
+                                            <asp:TextBox runat="server" placeholder="Basophils" ID="txtBasophils" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-group row">
+                                        <label class="col-md-4">ESR</label>
+                                        <div class="col-md-8">
+                                            <asp:TextBox runat="server" placeholder="ESR" ID="txtESR" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
 
                                         </div>
                                     </div>
                                     <div class="form-group row pull-right">
-                                        <asp:Button runat="server" Text="Save" ID="btnSavePatient" CommandName="AddVitalSign" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
+                                        <asp:Button runat="server" Text="Save" ID="btnSavePatient" CommandName="AddBloodCount" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
                                         <asp:Button runat="server" Text="Reset" ID="btnReset" CssClass="btn btn-default btn-md" />
 
                                     </div>
@@ -101,7 +144,6 @@
                     <div class="panel panel-default">
                         <div class="panel-heading">Add Update Vital Sign</div>
                         <div class="panel-body">
-
                             <div class="col-md-6">
                                 <div class="form-group row">
                                     <label class="col-md-4">Test Date</label>
@@ -110,35 +152,78 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-4">Pulse</label>
+                                    <label class="col-md-4">CBC</label>
                                     <div class="col-md-8">
-                                        <asp:TextBox runat="server" placeholder="Pulse" CssClass="form-control" ID="txtPulse" ClientIDMode="Static"></asp:TextBox>
+                                        <asp:TextBox runat="server" placeholder="CBC" CssClass="form-control" ID="txtCBC" ClientIDMode="Static"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-md-4">Weight</label>
+                                    <label class="col-md-4">WBC</label>
                                     <div class="col-md-8">
-                                        <asp:TextBox runat="server" placeholder="Weight" CssClass="form-control" ID="txtWeight" ClientIDMode="Static"></asp:TextBox>
+                                        <asp:TextBox runat="server" placeholder="WBC" CssClass="form-control" ID="txtWBC" ClientIDMode="Static"></asp:TextBox>
                                     </div>
                                 </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">PLATELET</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="PLATELET" ID="txtPLATELET" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">MCV</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="MCV" ID="txtMCV" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">Neutrophils</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="Neutrophils" ID="txtNeutrophils" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    </div>
+
+                                </div>
+
                             </div>
                             <div class="col-md-6">
                                 <div class="form-group row">
-                                    <label class="col-md-4">S BP</label>
+                                    <label class="col-md-4">Lymphocytes</label>
                                     <div class="col-md-8">
-                                        <asp:TextBox runat="server" placeholder="S BP" ID="txtSBP" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-                                    </div>
-
-                                </div>
-                                <div class="form-group row">
-                                    <label class="col-md-4">D SP</label>
-                                    <div class="col-md-8">
-                                        <asp:TextBox runat="server" placeholder="D BP" ID="txtDBP" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                        <asp:TextBox runat="server" placeholder="Lymphocytes" ID="txtLymphocytes" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
 
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <asp:Button runat="server" Text="Update" ID="btnUpdatePatient" CommandName="UpdateVitalSign" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
+                                    <label class="col-md-4">Eosinophil</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="Eosinophil" ID="txtEosinophil" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">Monocytes</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="Monocytes" ID="txtMonocytes" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">Basophils</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="Basophils" ID="txtBasophils" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    </div>
+
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">ESR</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="ESR" ID="txtESR" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <asp:Button runat="server" Text="Update" ID="btnUpdatePatient" CommandName="UpdateBloodCount" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
                                     <asp:Button runat="server" Text="Reset" ID="btnReset" CssClass="btn btn-default btn-md" />
 
                                 </div>
@@ -163,20 +248,27 @@
                     </div>
                 </div>
                 <div class="panel-body">
-                    <asp:GridView ID="grdvwVitalSignRptDetails" AutoGenerateColumns="false" AllowCustomPaging="true" DataKeyNames="VSR_TestReportID" OnPageIndexChanging="grdvwVitalSignRptDetails_PageIndexChanging" OnRowCommand="grdvwVitalSignRptDetails_RowCommand"
+                    <asp:GridView ID="grdvwBloodCountRptDetails" AutoGenerateColumns="false" AllowCustomPaging="true" DataKeyNames="BCR_TestReportID"
+                        OnPageIndexChanging="grdvwBloodCountRptDetails_PageIndexChanging" OnRowCommand="grdvwBloodCountRptDetails_RowCommand"
                         CssClass="table table-striped table-bordered table-hover"
                         runat="server"
                         AllowPaging="true">
                         <Columns>
-                            <asp:BoundField DataField="TestDate" HeaderText="Test Date" DataFormatString="{0:MMM-dd-yyyy}"/>
-                            <asp:BoundField DataField="SBP" HeaderText="SBP" />
-                            <asp:BoundField DataField="DBP" HeaderText="DBP" />
-                            <asp:BoundField DataField="Weight" HeaderText="Weight" />
-                            <asp:BoundField DataField="Pulse" HeaderText="Pulse" />
+                            <asp:BoundField DataField="TestDate" HeaderText="Test Date" DataFormatString="{0:MMM-dd-yyyy}" />
+                            <asp:BoundField DataField="CBC" HeaderText="CBC" />
+                            <asp:BoundField DataField="WBC" HeaderText="WBC" />
+                            <asp:BoundField DataField="PLATELET" HeaderText="PLATELET" />
+                            <asp:BoundField DataField="MCV" HeaderText="MCV" />
+                            <asp:BoundField DataField="Neutrophils" HeaderText="Neutrophils" />
+                            <asp:BoundField DataField="Lymphocytes" HeaderText="Lymphocytes" />
+                            <asp:BoundField DataField="Eosinophil" HeaderText="Eosinophil" />
+                            <asp:BoundField DataField="Monocytes" HeaderText="Monocytes" />
+                            <asp:BoundField DataField="Basophils" HeaderText="Basophils" />
+                            <asp:BoundField DataField="ESR" HeaderText="ESR" />
                             <asp:TemplateField HeaderText="Edit">
                                 <ItemTemplate>
                                     <asp:LinkButton ID="lnkEdit" runat="server" CssClass="btn btn-default" CommandName="select"
-                                        CommandArgument='<%#Bind("VSR_TestReportID") %>'><span aria-hidden="true" class="glyphicon glyphicon-edit"></span></asp:LinkButton>
+                                        CommandArgument='<%#Bind("BCR_TestReportID") %>'><span aria-hidden="true" class="glyphicon glyphicon-edit"></span></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

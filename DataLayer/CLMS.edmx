@@ -44,6 +44,7 @@
           <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
           <Property Name="EditedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
+          <Property Name="Neutrophils" Type="nvarchar" MaxLength="250" />
         </EntityType>
         <EntityType Name="tbl_DiabetesReports">
           <Key>
@@ -456,6 +457,7 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="EditedDate" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
+          <Property Name="Neutrophils" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="tbl_DiabetesReports">
           <Key>
@@ -734,6 +736,7 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <EntitySetMapping Name="tbl_BoneProfileReports">
             <EntityTypeMapping TypeName="CLMS_DBModel.tbl_BoneProfileReports">
               <MappingFragment StoreEntitySet="tbl_BoneProfileReports">
+                <ScalarProperty Name="Neutrophils" ColumnName="Neutrophils" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
                 <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
                 <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />
