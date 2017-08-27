@@ -126,6 +126,12 @@ namespace CLMS_App.UserControls
                     frmvwAddUpdateBoneProfile.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
+                else
+                {
+                    BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, (BootstrapAlertType)(_msg.StatusCode));
+                    frmvwAddUpdateBoneProfile.ChangeMode(FormViewMode.Insert);
+                    BindGridDetails();
+                }
             }
 
         }

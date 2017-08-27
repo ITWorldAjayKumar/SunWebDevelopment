@@ -68,7 +68,7 @@
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand" href="index.html">
-                        <img src="Images/LogoCLMS.png" alt="Company Logo" />
+                        <img src="/Images/LogoCLMS.png" alt="Company Logo" />
                     </a>
                 </div>
                 <!-- Top Menu Items -->
@@ -193,7 +193,7 @@
                                 <li>
                                     <a href="../Patient/Report_PatientMgmt.aspx">Vital Sign</a>
                                 </li>
-                                <li>
+                               <%-- <li>
                                     <a href="../Patient/ReportsMgmt.aspx">Diabetes</a>
                                 </li>
                                 <li>
@@ -219,7 +219,7 @@
                                 </li>
                                 <li>
                                     <a href="../Patient/ReportsMgmt.aspx">Urine</a>
-                                </li>
+                                </li>--%>
                             </ul>
                         </li>
                         <li>

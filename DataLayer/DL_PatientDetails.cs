@@ -170,58 +170,7 @@ namespace DataLayer
             }
             return _msg;
         }
-        //public DC_Message AddUpdateVitalSignDetails(DC_VitalSingsDetails _objSave)
-        //{
-        //    DC_Message _msg = new DC_Message();
-        //    try
-        //    {
-        //        using (CLMS_DBEntities context = new CLMS_DBEntities())
-        //        {
-        //            if (_objSave.TestReportID != null && _objSave.TestReportID != Guid.Empty) //Edit
-        //            {
-        //                var isExist = (from p in context.tbl_VitalSingsDetails
-        //                               where p.TestReportID != _objSave.TestReportID
-        //                               select p).Count() == 0 ? false : true;
-
-
-
-        //            }
-        //            else //Add
-        //            {
-
-        //                tbl_VitalSingsDetails _objP = new tbl_VitalSingsDetails
-        //                {
-        //                    TestReportID = Guid.NewGuid(),
-        //                    PatientID = _objSave.PatientID,
-        //                    BP = _objSave.BP,
-        //                    Weight = Convert.ToDecimal(_objSave.Weight),
-        //                    Temperature = Convert.ToDecimal(_objSave.Temperature),
-        //                    Pluse = _objSave.Pluse,
-        //                    CreatedBy = _objSave.CreatedBy,
-        //                    CreatedDate = DateTime.Now,
-        //                    IsActive = _objSave.IsActive,
-        //                };
-        //                context.tbl_VitalSingsDetails.Add(_objP);
-        //                if (context.SaveChanges() == 1)
-        //                {
-        //                    _msg.StatusMessage = strClassFor + ReadOnlyMessage.strAddedSuccessfully;
-        //                    _msg.StatusCode = ReadOnlyMessage.StatusCode.Success;
-        //                }
-        //                else
-        //                {
-        //                    _msg.StatusMessage = strClassFor + ReadOnlyMessage.strFailed;
-        //                    _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
-        //                }
-        //            }
-        //        }
-        //    }
-        //    catch (Exception)
-        //    {
-        //        _msg.StatusMessage = ReadOnlyMessage.strFailed;
-        //        _msg.StatusCode = ReadOnlyMessage.StatusCode.Failed;
-        //    }
-        //    return _msg;
-        //}
+    
 
         public List<DC_VitalSingsDetails> GetVitalDetails(DC_VitalDetails_Search _objSearch)
         {

@@ -72,8 +72,8 @@ namespace DataLayer.Reports
 
                     if (_objSave.BPR_TestReportID != null && _objSave.BPR_TestReportID != Guid.Empty)
                     {
-                        var isDuplicate = (from x in context.tbl_VitalSignsReports
-                                           where x.VSR_TestReportID != _objSave.BPR_TestReportID
+                        var isDuplicate = (from x in context.tbl_BoneProfileReports
+                                           where x.BPR_TestReportID != _objSave.BPR_TestReportID
                                            && x.PatientID == x.PatientID && x.TestDate == _objSave.TestDate
                                            select x).Count() == 0 ? false : true;
 

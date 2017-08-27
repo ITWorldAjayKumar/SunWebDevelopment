@@ -120,7 +120,7 @@
                                 <div class="form-group row">
                                     <label class="col-md-4">VitaminD</label>
                                     <div class="col-md-8">
-                                        <asp:TextBox runat="server" placeholder="VitaminD" CssClass="form-control" ID="TextBox1" ClientIDMode="Static"></asp:TextBox>
+                                        <asp:TextBox runat="server" placeholder="VitaminD" CssClass="form-control" ID="txtVitaminD" ClientIDMode="Static"></asp:TextBox>
                                     </div>
                                 </div>
                                 <div class="form-group row">

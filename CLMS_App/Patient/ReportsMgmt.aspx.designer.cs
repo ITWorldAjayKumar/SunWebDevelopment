@@ -11,32 +11,5 @@ namespace CLMS_App.Patient {
     
     
     public partial class ReportsMgmt {
-        
-        /// <summary>
-        /// ScriptManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// ucVitalSignReport1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CLMS_App.UserControls.ucVitalSignReport ucVitalSignReport1;
-        
-        /// <summary>
-        /// ucUrineReports1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::CLMS_App.UserControls.ucUrineReports ucUrineReports1;
     }
 }
