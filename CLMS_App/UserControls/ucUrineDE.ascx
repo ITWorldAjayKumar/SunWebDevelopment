@@ -1,4 +1,5 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucUrineDE.ascx.cs" Inherits="CLMS_App.UserControls.ucUrineDE" %>
+﻿
+<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="ucUrineDE.ascx.cs" Inherits="CLMS_App.UserControls.ucUrineDE" %>
 <link href="../Content/jquery-ui.css" rel="stylesheet" />
 <script src="../js/Jquery/jquery-1.12.4.js"></script>
 <script src="../js/Jquery/jquery-ui.js"></script>

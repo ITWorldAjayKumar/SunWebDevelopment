@@ -84,15 +84,27 @@ namespace CLMS_App.Patient
                     TextBox txtAge = (TextBox)frmvwAddUpdatePatient.FindControl("txtAge");
                     TextBox txtOccupation = (TextBox)frmvwAddUpdatePatient.FindControl("txtOccupation");
                     TextBox txtMobileNo = (TextBox)frmvwAddUpdatePatient.FindControl("txtMobileNo");
+                    TextBox txtAltMobileNo = (TextBox)frmvwAddUpdatePatient.FindControl("txtAltMobileNo");
+                    
                     RadioButtonList rdbtnlstGender = (RadioButtonList)frmvwAddUpdatePatient.FindControl("rdbtnlstGender");
-                    HtmlTextArea txtAddress = (HtmlTextArea)frmvwAddUpdatePatient.FindControl("txtAddress");
+                  //  HtmlTextArea txtAddress = (HtmlTextArea)frmvwAddUpdatePatient.FindControl("txtAddress")
+                    TextBox txtAddress = (TextBox)frmvwAddUpdatePatient.FindControl("txtAddress");
+                    TextBox txtAddress2 = (TextBox)frmvwAddUpdatePatient.FindControl("txtAddress2");
+                    TextBox txtAddress3 = (TextBox)frmvwAddUpdatePatient.FindControl("txtAddress3");
+                    TextBox txtPincode = (TextBox)frmvwAddUpdatePatient.FindControl("txtPincode");
+                    TextBox txtEmailAdd = (TextBox)frmvwAddUpdatePatient.FindControl("txtEmailAdd");
 
                     txtPatientName.Text = result[0].Name;
                     txtAge.Text = Convert.ToString(result[0].Age);
                     txtOccupation.Text = result[0].Occupation;
                     txtMobileNo.Text = result[0].Mobile;
+                    txtAltMobileNo.Text = result[0].AlternetMobNo;
                     rdbtnlstGender.SelectedValue = result[0].Gender;
-                    txtAddress.Value = result[0].Address;
+                    txtAddress.Text = result[0].Address;
+                    txtAddress2.Text = result[0].Address_2;
+                    txtAddress3.Text = result[0].Address_3;
+                    txtPincode.Text = result[0].PinCode;
+                    txtEmailAdd.Text = result[0].Email_ID;
 
                 }
             }
@@ -125,8 +137,16 @@ namespace CLMS_App.Patient
             TextBox txtAge = (TextBox)frmvwAddUpdatePatient.FindControl("txtAge");
             TextBox txtOccupation = (TextBox)frmvwAddUpdatePatient.FindControl("txtOccupation");
             TextBox txtMobileNo = (TextBox)frmvwAddUpdatePatient.FindControl("txtMobileNo");
+            TextBox txtAltMobileNo = (TextBox)frmvwAddUpdatePatient.FindControl("txtAltMobileNo");
+
+            
             RadioButtonList rdbtnlstGender = (RadioButtonList)frmvwAddUpdatePatient.FindControl("rdbtnlstGender");
-            HtmlTextArea txtAddress = (HtmlTextArea)frmvwAddUpdatePatient.FindControl("txtAddress");
+            TextBox txtAddress = (TextBox)frmvwAddUpdatePatient.FindControl("txtAddress");
+            TextBox txtAddress2 = (TextBox)frmvwAddUpdatePatient.FindControl("txtAddress2");
+            TextBox txtAddress3 = (TextBox)frmvwAddUpdatePatient.FindControl("txtAddress3");
+            TextBox txtEmailAdd = (TextBox)frmvwAddUpdatePatient.FindControl("txtEmailAdd");
+            TextBox txtPincode = (TextBox)frmvwAddUpdatePatient.FindControl("txtPincode");
+
 
             if (e.CommandName == "AddPatient")
             {
@@ -136,7 +156,12 @@ namespace CLMS_App.Patient
                 _objAdd.Age = Convert.ToInt32(txtAge.Text);
                 _objAdd.Occupation = txtOccupation.Text;
                 _objAdd.Mobile = txtMobileNo.Text;
-                _objAdd.Address = txtAddress.Value;
+                _objAdd.AlternetMobNo = txtAltMobileNo.Text;
+                _objAdd.Address = txtAddress.Text;
+                _objAdd.Address_2 = txtAddress2.Text;
+                _objAdd.Address_3 = txtAddress3.Text;
+                _objAdd.Email_ID = txtEmailAdd.Text;
+                _objAdd.PinCode = txtPincode.Text;
                 _objAdd.Gender = rdbtnlstGender.SelectedItem.Text;
                 _objAdd.CreatedBy = "Ajay";
                 _msg = _objDL.AddUpdatePatientDetails(_objAdd);
@@ -155,7 +180,13 @@ namespace CLMS_App.Patient
                 _objAdd.Age = Convert.ToInt32(txtAge.Text);
                 _objAdd.Occupation = txtOccupation.Text;
                 _objAdd.Mobile = txtMobileNo.Text;
-                _objAdd.Address = "Goregoan";
+                _objAdd.AlternetMobNo = txtAltMobileNo.Text;
+                // _objAdd.Address = "Goregoan";
+                _objAdd.Address = txtAddress.Text ;
+                _objAdd.Address_2 = txtAddress2.Text;
+                _objAdd.Address_3 = txtAddress3.Text;
+                _objAdd.Email_ID = txtEmailAdd.Text;
+                _objAdd.PinCode = txtPincode.Text;
                 _objAdd.Gender = rdbtnlstGender.SelectedItem.Text;
                 _objAdd.EditedBy = "Ajay";
                 _msg = _objDL.AddUpdatePatientDetails(_objAdd);
@@ -168,49 +199,5 @@ namespace CLMS_App.Patient
 
         }
 
-        //protected void frmVitalSign_ItemCommand(object sender, FormViewCommandEventArgs e)
-        //{
-        //    TextBox txtBP = (TextBox)frmVitalSign.FindControl("txtBP");
-        //    TextBox txtWeight = (TextBox)frmVitalSign.FindControl("txtWeight");
-        //    TextBox txtTemperature = (TextBox)frmVitalSign.FindControl("txtTemperature");
-        //    TextBox txtPluse = (TextBox)frmVitalSign.FindControl("txtPluse");
-        //    //RadioButtonList rdbtnlstGender = (RadioButtonList)frmvwAddUpdatePatient.FindControl("rdbtnlstGender");
-        //    //HtmlTextArea txtAddress = (HtmlTextArea)frmvwAddUpdatePatient.FindControl("txtAddress");
-
-        //    if (e.CommandName == "AddVitalSign")
-        //    {
-        //        DC_Message _msg = new DC_Message();
-        //        DC_VitalSingsDetails _objAdd = new DC_VitalSingsDetails();
-        //        _objAdd.PatientID = Guid.Parse(Convert.ToString(frmVitalSign.DataKey.Value));
-        //        _objAdd.BP = txtBP.Text;
-        //        _objAdd.Weight = Convert.ToDecimal(txtWeight.Text);
-        //        _objAdd.Temperature = Convert.ToDecimal(txtTemperature.Text);
-        //        _objAdd.Pluse = txtPluse.Text;
-        //        _objAdd.CreatedBy = "Ajay";
-        //       // _msg = _objDL.AddUpdateVitalSignDetails(_objAdd);
-        //        if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
-        //        {
-        //            BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-        //            hdnFlag.Value = "true";
-        //        }
-        //    }
-        //    if (e.CommandName == "EditVitalSign")
-        //    {
-        //        DC_Message _msg = new DC_Message();
-        //        DC_VitalSingsDetails _objAdd = new DC_VitalSingsDetails();
-        //        _objAdd.PatientID = Guid.Parse(Convert.ToString(frmvwAddUpdatePatient.DataKey.Value));
-        //        _objAdd.BP = txtBP.Text;
-        //        _objAdd.Weight = Convert.ToDecimal(txtWeight.Text);
-        //        _objAdd.Temperature = Convert.ToDecimal(txtTemperature.Text);
-        //        _objAdd.Pluse = txtPluse.Text;
-        //        _objAdd.EditedBy = "Ajay";
-        //       // _msg = _objDL.AddUpdateVitalSignDetails(_objAdd);
-        //        if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
-        //        {
-        //            BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-        //            hdnFlag.Value = "true";
-        //        }
-        //    }
-        //}
-    }
+     }
 }

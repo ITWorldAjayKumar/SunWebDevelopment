@@ -13,11 +13,23 @@ namespace DataContracts
         [DataMember]
         public string Mobile { get; set; }
         [DataMember]
+        public string AlternetMobNo { get; set; }
+        [DataMember]
         public int Age { get; set; }
         [DataMember]
         public string Occupation { get; set; }
         [DataMember]
         public string Address { get; set; }
+        [DataMember]
+        public string Address_1 { get; set; }
+        [DataMember]
+        public string Address_2 { get; set; }
+        [DataMember]
+        public string Address_3 { get; set; }
+        [DataMember]
+        public string Email_ID { get; set; }
+        [DataMember]
+        public string PinCode { get; set; }
         [DataMember]
         public string Gender { get; set; }
         [DataMember]

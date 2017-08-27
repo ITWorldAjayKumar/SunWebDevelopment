@@ -129,7 +129,7 @@
                                         <asp:TemplateField HeaderText="Vital Sign">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="lnkaddVitalSign" runat="server" CssClass="btn btn-default" CommandName="select"
-                                                    PostBackUrl='<%# String.Format("~/ReportsDE/Report_VitalSignDE.aspx?PatientID={0}",Eval("id")) %>'>
+                                                    PostBackUrl='<%# String.Format("~/Patient/VitalMgmt.aspx?PatientID={0}",Eval("id")) %>'>
                                                <span aria-hidden="true" class="glyphicon glyphicon-edit"></span>&nbspAdd/Edit </asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
@@ -159,7 +159,7 @@
                             <asp:FormView runat="server" ID="frmvwAddUpdatePatient" CssClass="fullwidth" DataKeyNames="ID" OnItemCommand="frmvwAddUpdatePatient_ItemCommand" DefaultMode="Insert">
                                 <InsertItemTemplate>
                                     <div class="panel-body">
-                                        <div class="col-md-6">
+                                        <div class="col-md-4">
                                             <div class="form-group row">
                                                 <label class="col-md-4">Name</label>
                                                 <div class="col-md-8">
@@ -178,8 +178,20 @@
                                                     <asp:TextBox runat="server" placeholder="Occupation" CssClass="form-control" ID="txtOccupation" ClientIDMode="Static"></asp:TextBox>
                                                 </div>
                                             </div>
+                                             <div class="form-group row">
+                                                <label class="col-md-4">E-Mail</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Enter Email Address" CssClass="form-control" ID="txtEmailAdd" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                              <div class="form-group row">
+                                                <label class="col-md-4">Pin Code</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Enter Pincode" CssClass="form-control" ID="txtPincode" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="col-md-6">
+                                        <div class="col-md-8">
                                             <div class="form-group row">
                                                 <label class="col-md-4">Mobile No</label>
                                                 <div class="col-md-8">
@@ -187,6 +199,14 @@
                                                 </div>
 
                                             </div>
+                                                <div class="form-group row">
+                                                <label class="col-md-4">Alt Mobile No</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Alternate Mobile Number" ID="txtAltMobileNo" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+
+                                            </div>
+
                                             <div class="form-group row">
                                                 <label class="col-md-4">Gender</label>
                                                 <div class="col-md-8">
@@ -199,21 +219,113 @@
                                                 </div>
                                             </div>
                                             <div class="form-group row">
-                                                <label class="col-md-4">Address</label>
+                                                <label class="col-md-4">Address 1</label>
                                                 <div class="col-md-8">
-                                                    <textarea runat="server" id="txtAddress" style="margin: 0px; width: 281px; height: 66px;"
-                                                        placeholder="Enter Address"></textarea>
+                                                      <asp:TextBox runat="server" placeholder="Enter Address 1" ID="txtAddress" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
                                                 </div>
+                                                   <label class="col-md-4">Address 2</label>
+                                             <div class="col-md-8">
+                                                 <asp:TextBox runat="server" placeholder="Enter Address 2" ID="txtAddress2" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                              </div>
+                                                <label class="col-md-4">Address 3</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Enter Address 3" ID="txtAddress3" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                                  </div>
+
                                             </div>
+                                            
                                             <div class="form-group row">
                                                 <asp:Button runat="server" Text="Save" ID="btnSavePatient" CommandName="AddPatient" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
                                                 <asp:Button runat="server" Text="Reset" ID="btnReset" CssClass="btn btn-default btn-md" />
-
                                             </div>
                                         </div>
                                     </div>
                                 </InsertItemTemplate>
-                                <EditItemTemplate>
+                                 <EditItemTemplate>
+                                    <div class="panel-body">
+                                        <div class="col-md-4">
+                                            <div class="form-group row">
+                                                <label class="col-md-4">Name</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Name" CssClass="form-control" ID="txtPatientName" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-4">Age</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Age" CssClass="form-control" ID="txtAge" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-4">Occupation</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Occupation" CssClass="form-control" ID="txtOccupation" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                             <div class="form-group row">
+                                                <label class="col-md-4">E-Mail</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Enter Email Address" CssClass="form-control" ID="txtEmailAdd" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                              <div class="form-group row">
+                                                <label class="col-md-4">Pin Code</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Enter Pincode" CssClass="form-control" ID="txtPincode" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-8">
+                                            <div class="form-group row">
+                                                <label class="col-md-4">Mobile No</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Mobile Number" ID="txtMobileNo" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+
+                                            </div>
+                                                <div class="form-group row">
+                                                <label class="col-md-4">Alt Mobile No</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Alternate Mobile Number" ID="txtAltMobileNo" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-group row">
+                                                <label class="col-md-4">Gender</label>
+                                                <div class="col-md-8">
+                                                    <asp:RadioButtonList runat="server" RepeatDirection="Horizontal" ID="rdbtnlstGender">
+                                                        <asp:ListItem Value="Male">Male</asp:ListItem>
+                                                        <asp:ListItem Value="Female">Female</asp:ListItem>
+                                                        <asp:ListItem Value="Others">Others</asp:ListItem>
+
+                                                    </asp:RadioButtonList>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <label class="col-md-4">Address 1</label>
+                                                <div class="col-md-8">
+                                                      <asp:TextBox runat="server" placeholder="Enter Address 1" ID="txtAddress" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                                </div>
+                                                   <label class="col-md-4">Address 2</label>
+                                             <div class="col-md-8">
+                                                 <asp:TextBox runat="server" placeholder="Enter Address 2" ID="txtAddress2" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                              </div>
+                                                <label class="col-md-4">Address 3</label>
+                                                <div class="col-md-8">
+                                                    <asp:TextBox runat="server" placeholder="Enter Address 3" ID="txtAddress3" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                                  </div>
+
+                                            </div>
+                                            
+                                            <div class="form-group row">
+                                                <asp:Button runat="server" Text="Save1" ID="btnSavePatient" CommandName="EditPatient" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
+                                                <asp:Button runat="server" Text="Reset" ID="btnReset" CssClass="btn btn-default btn-md" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </EditItemTemplate>
+                              <%--  <EditItemTemplate>
                                     <div class="panel-body">
                                         <div class="col-md-6">
                                             <div class="form-group row">
@@ -267,7 +379,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </EditItemTemplate>
+                                </EditItemTemplate>--%>
                             </asp:FormView>
                         </div>
                         <div class="modal-footer">
