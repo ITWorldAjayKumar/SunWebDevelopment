@@ -14,7 +14,7 @@ namespace CLMS_App.UserControls
     public partial class ucBloodCountDE : System.Web.UI.UserControl
     {
         public static Guid _patientId = Guid.Empty;
-        DL_VitalSignsReports _objDL = new DL_VitalSignsReports();
+        DL_BloodCountReports _objDL = new DL_BloodCountReports();
         public static int intPageSize = 3;
         public static int intPageIndex = 0;
         protected void Page_Load(object sender, EventArgs e)
@@ -39,14 +39,14 @@ namespace CLMS_App.UserControls
             {
                 if (GetPatientID() != Guid.Empty)
                 {
-                    var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
-                    grdvwVitalSignRptDetails.DataSource = result;
+                    var result = _objDL.GetBloodCountReports(new DC_BloodCountReports_Search() { PatientID = _patientId, PageNo = intPageIndex, PageSize = intPageSize });
+                    grdvwBloodCountRptDetails.DataSource = result;
                     if (result != null && result.Count > 0)
-                        grdvwVitalSignRptDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
+                        grdvwBloodCountRptDetails.VirtualItemCount = result[0].TotalRecord ?? 0;
 
-                    grdvwVitalSignRptDetails.PageIndex = intPageIndex;
-                    grdvwVitalSignRptDetails.PageSize = intPageSize;
-                    grdvwVitalSignRptDetails.DataBind();
+                    grdvwBloodCountRptDetails.PageIndex = intPageIndex;
+                    grdvwBloodCountRptDetails.PageSize = intPageSize;
+                    grdvwBloodCountRptDetails.DataBind();
                 }
 
             }
@@ -61,11 +61,11 @@ namespace CLMS_App.UserControls
         {
             try
             {
-                List<DC_VitalSignsReports> _lstDC_VitalSignsReports = new List<DC_VitalSignsReports>();
-                DC_VitalSignsReports _objvsr = new DC_VitalSignsReports();
-                _lstDC_VitalSignsReports.Add(_objvsr);
-                frmvwAddUpdateVitalSign.DataSource = _lstDC_VitalSignsReports;
-                frmvwAddUpdateVitalSign.DataBind();
+                List<DC_BloodCountReports> _lstDC_BloodCountReports = new List<DC_BloodCountReports>();
+                DC_BloodCountReports _objvsr = new DC_BloodCountReports();
+                _lstDC_BloodCountReports.Add(_objvsr);
+                frmvwAddUpdateBloodCount.DataSource = _lstDC_BloodCountReports;
+                frmvwAddUpdateBloodCount.DataBind();
             }
             catch (Exception)
             {
@@ -74,92 +74,124 @@ namespace CLMS_App.UserControls
             }
         }
 
-        protected void frmvwAddUpdateVitalSign_ItemCommand(object sender, FormViewCommandEventArgs e)
-        {
-            TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-            TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-            TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-            TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-            TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+                 
 
-            if (e.CommandName == "AddVitalSign")
+        
+
+        protected void frmvwAddUpdateBloodCount_ItemCommand(object sender, FormViewCommandEventArgs e)
+        {
+            TextBox txtTestDate = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtTestDate");
+            TextBox txtCBC = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtCBC");
+            TextBox txtWBC = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtWBC");
+            TextBox txtPLATELET = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtPLATELET");
+            TextBox txtMCV = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtMCV");
+            TextBox txtNeutrophils = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtNeutrophils");
+            TextBox txtLymphocytes = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtLymphocytes");
+            TextBox txtEosinophil = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtEosinophil");
+            TextBox txtMonocytes = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtMonocytes");
+            TextBox txtBasophils = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtBasophils");
+            TextBox txtESR = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtESR");
+
+            if (e.CommandName == "AddBloodCount")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
+                DC_BloodCountReports _objAdd = new DC_BloodCountReports();
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
                 _objAdd.PatientID = GetPatientID();
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.CBC = txtCBC.Text;
+                _objAdd.WBC = txtWBC.Text;
+                _objAdd.PLATELET = txtPLATELET.Text;
+                _objAdd.MCV = txtMCV.Text;
+                _objAdd.Neutrophils = txtNeutrophils.Text;
+                _objAdd.Lymphocytes = txtLymphocytes.Text;
+                _objAdd.Eosinophil = txtEosinophil.Text;
+                _objAdd.Monocytes = txtMonocytes.Text;
+                _objAdd.Basophils = txtBasophils.Text;
+                _objAdd.ESR = txtESR.Text;
                 _objAdd.CreatedBy = "Ajay";
                 _objAdd.CreatedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateBloodCountReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateBloodCount.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-            if (e.CommandName == "UpdateVitalSign")
+            if (e.CommandName == "UpdateBloodCount")
             {
                 DC_Message _msg = new DC_Message();
-                DC_VitalSignsReports _objAdd = new DC_VitalSignsReports();
-                _objAdd.VSR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateVitalSign.DataKey.Value));
-                _objAdd.Pulse = Convert.ToString(txtPulse.Text);
-                _objAdd.Weight = txtWeight.Text;
+                DC_BloodCountReports _objAdd = new DC_BloodCountReports();
+                _objAdd.BCR_TestReportID = Guid.Parse(Convert.ToString(frmvwAddUpdateBloodCount.DataKey.Value));
                 _objAdd.TestDate = Convert.ToDateTime(txtTestDate.Text);
-                _objAdd.SBP = txtSBP.Text;
-                _objAdd.DBP = txtDBP.Text;
+                _objAdd.PatientID = GetPatientID();
+                _objAdd.CBC = txtCBC.Text;
+                _objAdd.WBC = txtWBC.Text;
+                _objAdd.PLATELET = txtPLATELET.Text;
+                _objAdd.MCV = txtMCV.Text;
+                _objAdd.Neutrophils = txtNeutrophils.Text;
+                _objAdd.Lymphocytes = txtLymphocytes.Text;
+                _objAdd.Eosinophil = txtEosinophil.Text;
+                _objAdd.Monocytes = txtMonocytes.Text;
+                _objAdd.Basophils = txtBasophils.Text;
+                _objAdd.ESR = txtESR.Text;
                 _objAdd.EditedBy = "Ajay";
                 _objAdd.EditedDate = DateTime.Today;
-                _msg = _objDL.AddUpdateVitalSingsReports(_objAdd);
+                _msg = _objDL.AddUpdateBloodCountReports(_objAdd);
                 if (_msg.StatusCode == ReadOnlyMessage.StatusCode.Success)
                 {
                     BootstrapAlert.BootstrapAlertMessage(divmsg, _msg.StatusMessage, BootstrapAlertType.Success);
-                    frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Insert);
+                    frmvwAddUpdateBloodCount.ChangeMode(FormViewMode.Insert);
                     BindGridDetails();
                 }
             }
-
         }
 
-
-
-        protected void grdvwVitalSignRptDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        protected void grdvwBloodCountRptDetails_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             intPageIndex = e.NewPageIndex;
             BindGridDetails();
         }
 
-        protected void grdvwVitalSignRptDetails_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void grdvwBloodCountRptDetails_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "select")
             {
                 divmsg.Style.Add("display", "none");
-                frmvwAddUpdateVitalSign.ChangeMode(FormViewMode.Edit);
-                Guid VSR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
+                frmvwAddUpdateBloodCount.ChangeMode(FormViewMode.Edit);
+                Guid BCR_TestReportID = Guid.Parse(e.CommandArgument.ToString());
 
-                var result = _objDL.GetVitalSingsReports(new DC_VitalSignsReports_Search() { VSR_TestReportID = VSR_TestReportID, PageNo = 0, PageSize = 1 });
+                var result = _objDL.GetBloodCountReports(new DC_BloodCountReports_Search() { BCR_TestReportID = BCR_TestReportID, PageNo = 0, PageSize = 1 });
                 if (result != null && result.Count > 0)
                 {
-                    frmvwAddUpdateVitalSign.DataSource = result;
-                    frmvwAddUpdateVitalSign.DataBind();
-
-                    TextBox txtTestDate = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtTestDate");
-                    TextBox txtPulse = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtPulse");
-                    TextBox txtWeight = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtWeight");
-                    TextBox txtSBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtSBP");
-                    TextBox txtDBP = (TextBox)frmvwAddUpdateVitalSign.FindControl("txtDBP");
+                    frmvwAddUpdateBloodCount.DataSource = result;
+                    frmvwAddUpdateBloodCount.DataBind();
+                    TextBox txtTestDate = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtTestDate");
+                    TextBox txtCBC = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtCBC");
+                    TextBox txtWBC = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtWBC");
+                    TextBox txtPLATELET = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtPLATELET");
+                    TextBox txtMCV = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtMCV");
+                    TextBox txtNeutrophils = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtNeutrophils");
+                    TextBox txtLymphocytes = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtLymphocytes");
+                    TextBox txtEosinophil = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtEosinophil");
+                    TextBox txtMonocytes = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtMonocytes");
+                    TextBox txtBasophils = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtBasophils");
+                    TextBox txtESR = (TextBox)frmvwAddUpdateBloodCount.FindControl("txtESR");
 
 
 
                     txtTestDate.Text = result[0].TestDate.ToString("MMM-dd-yyyy");
-                    txtPulse.Text = Convert.ToString(result[0].Pulse);
-                    txtWeight.Text = result[0].Weight;
-                    txtSBP.Text = result[0].SBP;
-                    txtDBP.Text = result[0].DBP;
+                    txtCBC.Text = result[0].CBC;
+                    txtWBC.Text = result[0].WBC;
+                    txtPLATELET.Text = result[0].PLATELET;
+                    txtMCV.Text = result[0].MCV;
+                    txtNeutrophils.Text = result[0].Neutrophils;
+                    txtLymphocytes.Text = result[0].Lymphocytes;
+                    txtEosinophil.Text = result[0].Eosinophil;
+                    txtMonocytes.Text = result[0].Monocytes;
+                    txtBasophils.Text = result[0].Basophils;
+                    txtESR.Text = result[0].ESR;
+                   
                 }
 
             }

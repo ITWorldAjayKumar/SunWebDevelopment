@@ -26,5 +26,6 @@ namespace DataLayer
         public string EditedBy { get; set; }
         public Nullable<System.DateTime> EditedDate { get; set; }
         public Nullable<bool> IsActive { get; set; }
+        public string Neutrophils { get; set; }
     }
 }

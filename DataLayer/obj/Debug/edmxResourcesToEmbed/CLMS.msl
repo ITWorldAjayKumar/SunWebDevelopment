@@ -109,6 +109,7 @@
     <EntitySetMapping Name="tbl_BoneProfileReports">
       <EntityTypeMapping TypeName="CLMS_DBModel.tbl_BoneProfileReports">
         <MappingFragment StoreEntitySet="tbl_BoneProfileReports">
+          <ScalarProperty Name="Neutrophils" ColumnName="Neutrophils" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />
           <ScalarProperty Name="EditedDate" ColumnName="EditedDate" />
           <ScalarProperty Name="EditedBy" ColumnName="EditedBy" />

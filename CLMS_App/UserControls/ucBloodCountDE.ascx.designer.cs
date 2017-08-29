@@ -31,13 +31,13 @@ namespace CLMS_App.UserControls {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divmsg;
         
         /// <summary>
-        /// frmvwAddUpdateVitalSign control.
+        /// frmvwAddUpdateBloodCount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.FormView frmvwAddUpdateVitalSign;
+        protected global::System.Web.UI.WebControls.FormView frmvwAddUpdateBloodCount;
         
         /// <summary>
         /// UpdatePanel2 control.
@@ -49,12 +49,12 @@ namespace CLMS_App.UserControls {
         protected global::System.Web.UI.UpdatePanel UpdatePanel2;
         
         /// <summary>
-        /// grdvwVitalSignRptDetails control.
+        /// grdvwBloodCountRptDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdvwVitalSignRptDetails;
+        protected global::System.Web.UI.WebControls.GridView grdvwBloodCountRptDetails;
     }
 }

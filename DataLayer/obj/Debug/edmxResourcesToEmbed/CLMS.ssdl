@@ -39,6 +39,7 @@
     <Property Name="EditedBy" Type="nvarchar" MaxLength="250" />
     <Property Name="EditedDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
+    <Property Name="Neutrophils" Type="nvarchar" MaxLength="250" />
   </EntityType>
   <EntityType Name="tbl_DiabetesReports">
     <Key>

@@ -269,6 +269,7 @@
     <Content Include="css\bootstrap.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\Pagging.css" />
+    <Content Include="css\PanelCollapseToggal.css" />
     <Content Include="css\plugins\morris.css" />
     <Content Include="css\sb-admin-rtl.css" />
     <Content Include="css\sb-admin.css" />
@@ -333,6 +334,7 @@
     <Content Include="js\Jquery\jquery-1.12.4.js" />
     <Content Include="js\Jquery\jquery-ui.js" />
     <Content Include="js\moment.js" />
+    <Content Include="js\PanelCollapseToggal.js" />
     <Content Include="js\plugins\flot\excanvas.min.js" />
     <Content Include="js\plugins\flot\flot-data.js" />
     <Content Include="js\plugins\flot\jquery.flot.js" />

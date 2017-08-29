@@ -46,7 +46,7 @@
 <div class="col-md-12">
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <div id="divmsg" runat="server" ></div>
+            <div id="divmsg" runat="server"></div>
             <asp:FormView runat="server" ID="frmvwAddUpdateUrineDEVitalSign" CssClass="fullwidth" DataKeyNames="UR_TestReportID" OnItemCommand="frmvwAddUpdateUrineDEVitalSign_ItemCommand" DefaultMode="Insert">
                 <InsertItemTemplate>
                     <div class="panel panel-default">
@@ -66,28 +66,22 @@
                                             <asp:TextBox runat="server" placeholder="Albumin" CssClass="form-control" ID="txtAlbumin" ClientIDMode="Static"></asp:TextBox>
                                         </div>
                                     </div>
+
+                                </div>
+                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-4">Creatine</label>
                                         <div class="col-md-8">
                                             <asp:TextBox runat="server" placeholder="Creatine" CssClass="form-control" ID="txtCreatine" ClientIDMode="Static"></asp:TextBox>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-6">
                                     <div class="form-group row">
                                         <label class="col-md-4">ACR</label>
                                         <div class="col-md-8">
                                             <asp:TextBox runat="server" placeholder="ACR" ID="txtACR" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-                                        </divACR
+                                        </div>
 
                                     </div>
-                               <%--     <div class="form-group row">
-                                        <label class="col-md-4">D SP</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="D BP" ID="txtDBP" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-
-                                        </div>
-                                    </div>--%>
                                     <div class="form-group row pull-right">
                                         <asp:Button runat="server" Text="Save" ID="btnSavePatient" CommandName="AddUrinProfile" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
                                         <asp:Button runat="server" Text="Reset" ID="btnReset" CssClass="btn btn-default btn-md" />
@@ -104,47 +98,42 @@
                         <div class="panel-body">
 
                             <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-md-4">Test Date</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="Test Date" CssClass="form-control" ID="txtTestDate" ClientIDMode="Static"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-4">Albumin</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="Albumin" CssClass="form-control" ID="txtAlbumin" ClientIDMode="Static"></asp:TextBox>
-                                        </div>
-                                    </div>
-                                    <div class="form-group row">
-                                        <label class="col-md-4">Creatine</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="Creatine" CssClass="form-control" ID="txtCreatine" ClientIDMode="Static"></asp:TextBox>
-                                        </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">Test Date</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="Test Date" CssClass="form-control" ID="txtTestDate" ClientIDMode="Static"></asp:TextBox>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group row">
-                                        <label class="col-md-4">ACR</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="ACR" ID="txtACR" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-                                        </div>
-
-                                    </div>
-                               <%--     <div class="form-group row">
-                                        <label class="col-md-4">D SP</label>
-                                        <div class="col-md-8">
-                                            <asp:TextBox runat="server" placeholder="D BP" ID="txtDBP" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
-
-                                        </div>
-                                    </div>--%>
-                                    <div class="form-group row pull-right">
-                                        <asp:Button runat="server" Text="Save" ID="btnSavePatient" CommandName="UpdateUrinProfile" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
-                                        <asp:Button runat="server" Text="Reset" ID="btnReset" CssClass="btn btn-default btn-md" />
-
+                                <div class="form-group row">
+                                    <label class="col-md-4">Albumin</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="Albumin" CssClass="form-control" ID="txtAlbumin" ClientIDMode="Static"></asp:TextBox>
                                     </div>
                                 </div>
-                            
+
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group row">
+                                    <label class="col-md-4">Creatine</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="Creatine" CssClass="form-control" ID="txtCreatine" ClientIDMode="Static"></asp:TextBox>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-md-4">ACR</label>
+                                    <div class="col-md-8">
+                                        <asp:TextBox runat="server" placeholder="ACR" ID="txtACR" CssClass="form-control" ClientIDMode="Static"></asp:TextBox>
+                                    </div>
+
+                                </div>
+
+                                <div class="form-group row pull-right">
+                                    <asp:Button runat="server" Text="Save" ID="btnSavePatient" CommandName="UpdateUrinProfile" ValidationGroup="AddPatient" CssClass="btn btn-primary btn-md" />
+                                    <asp:Button runat="server" Text="Reset" ID="btnReset" CssClass="btn btn-default btn-md" />
+
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </EditItemTemplate>
@@ -170,7 +159,7 @@
                         runat="server"
                         AllowPaging="true">
                         <Columns>
-                            <asp:BoundField DataField="TestDate" HeaderText="Test Date" DataFormatString="{0:MMM-dd-yyyy}"/>
+                            <asp:BoundField DataField="TestDate" HeaderText="Test Date" DataFormatString="{0:MMM-dd-yyyy}" />
                             <asp:BoundField DataField="Albumin" HeaderText="Albumin" />
                             <asp:BoundField DataField="Creatine" HeaderText="Creatine" />
                             <asp:BoundField DataField="ACR" HeaderText="ACR" />
