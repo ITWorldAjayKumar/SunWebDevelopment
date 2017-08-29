@@ -93,6 +93,7 @@
     <EntitySet Name="tbl_UrineReports" EntityType="CLMS_DBModel.tbl_UrineReports" />
     <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" />
     <EntitySet Name="tbl_VitalSignsReports" EntityType="CLMS_DBModel.tbl_VitalSignsReports" />
+    <EntitySet Name="tblUserLoginDetails" EntityType="CLMS_DBModel.tblUserLoginDetail" />
   </EntityContainer>
   <EntityType Name="tbl_BloodCountReports">
     <Key>
@@ -297,5 +298,16 @@
     <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
     <Property Name="EditedDate" Type="DateTime" Precision="3" />
     <Property Name="IsActive" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="tblUserLoginDetail">
+    <Key>
+      <PropertyRef Name="SysId" />
+    </Key>
+    <Property Name="SysId" Type="Guid" Nullable="false" />
+    <Property Name="UserID" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" />
+    <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>
