@@ -13,5 +13,21 @@ namespace CLMS_App.Accounts
         {
 
         }
+
+        protected void btnLogin_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (Page.IsValid)
+                {
+
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
     }
 }

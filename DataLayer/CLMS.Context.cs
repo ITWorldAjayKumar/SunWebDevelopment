@@ -40,6 +40,6 @@ namespace DataLayer
         public virtual DbSet<tbl_UrineReports> tbl_UrineReports { get; set; }
         public virtual DbSet<tbl_PatientDetails_3Aug2017> tbl_PatientDetails_3Aug2017 { get; set; }
         public virtual DbSet<tbl_VitalSignsReports> tbl_VitalSignsReports { get; set; }
-        public virtual DbSet<tblUserLoginDetail> tblUserLoginDetails { get; set; }
+        public virtual DbSet<tbl_UserLoginDetails> tbl_UserLoginDetails { get; set; }
     }
 }

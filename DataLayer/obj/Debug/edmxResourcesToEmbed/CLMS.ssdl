@@ -155,6 +155,8 @@
     <Key>
       <PropertyRef Name="ID" />
     </Key>
+    <Property Name="SysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DisplayPatientID" Type="nvarchar" MaxLength="9" StoreGeneratedPattern="Computed" />
     <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
     <Property Name="PatientID" Type="nvarchar" MaxLength="50" />
     <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
@@ -232,6 +234,19 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
     <Property Name="EditedDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
+  <EntityType Name="tbl_UserLoginDetails">
+    <Key>
+      <PropertyRef Name="SysId" />
+    </Key>
+    <Property Name="SysId" Type="uniqueidentifier" Nullable="false" />
+    <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsActive" Type="bit" />
+    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+    <Property Name="Password" Type="nvarchar(max)" />
+    <Property Name="LastedLoginDate" Type="datetime" />
+    <Property Name="SessionID" Type="nvarchar(max)" />
+  </EntityType>
   <EntityType Name="tbl_VitalSignsReports">
     <Key>
       <PropertyRef Name="VSR_TestReportID" />
@@ -283,17 +298,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
     <Property Name="EditedDate" Type="datetime" />
     <Property Name="IsActive" Type="bit" />
   </EntityType>
-  <EntityType Name="tblUserLoginDetails">
-    <Key>
-      <PropertyRef Name="SysId" />
-    </Key>
-    <Property Name="SysId" Type="uniqueidentifier" Nullable="false" />
-    <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
-    <Property Name="IsActive" Type="bit" />
-    <Property Name="CreatedOn" Type="datetime" Nullable="false" />
-    <Property Name="Password" Type="nvarchar(max)" />
-  </EntityType>
   <EntityContainer Name="CLMS_DBModelStoreContainer">
     <EntitySet Name="tbl_BloodCountReports" EntityType="Self.tbl_BloodCountReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_BoneProfileReports" EntityType="Self.tbl_BoneProfileReports" Schema="dbo" store:Type="Tables" />
@@ -306,10 +310,10 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
     <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_ThyroidProfileReports" EntityType="Self.tbl_ThyroidProfileReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_UrineReports" EntityType="Self.tbl_UrineReports" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbl_UserLoginDetails" EntityType="Self.tbl_UserLoginDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_VitalSignsReports" EntityType="Self.tbl_VitalSignsReports" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="tblUserLoginDetails" EntityType="Self.tblUserLoginDetails" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="Self.tbl_PatientDetails_3Aug2017" store:Type="Tables" store:Schema="dbo">
       <DefiningQuery>SELECT 
     [tbl_PatientDetails_3Aug2017].[ID] AS [ID], 

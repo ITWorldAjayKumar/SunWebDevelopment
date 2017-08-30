@@ -33,5 +33,7 @@ namespace DataLayer
         public string Address_1 { get; set; }
         public string Address_2 { get; set; }
         public string Address_3 { get; set; }
+        public int SysID { get; set; }
+        public string DisplayPatientID { get; set; }
     }
 }

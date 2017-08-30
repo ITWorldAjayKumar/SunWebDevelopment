@@ -12,7 +12,7 @@ namespace DataLayer
     using System;
     using System.Collections.Generic;
     
-    public partial class tblUserLoginDetail
+    public partial class tbl_UserLoginDetails
     {
         public System.Guid SysId { get; set; }
         public string UserID { get; set; }
@@ -20,5 +20,7 @@ namespace DataLayer
         public Nullable<bool> IsActive { get; set; }
         public System.DateTime CreatedOn { get; set; }
         public string Password { get; set; }
+        public Nullable<System.DateTime> LastedLoginDate { get; set; }
+        public string SessionID { get; set; }
     }
 }

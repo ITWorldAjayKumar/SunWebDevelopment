@@ -80,9 +80,6 @@
     <Compile Include="Reports\DL_KidneyFunReports.cs" />
     <Compile Include="Reports\DL_DiabetesReports.cs" />
     <Compile Include="Reports\DL_VitalSignsReports.cs" />
-    <Compile Include="tblUserLoginDetail.cs">
-      <DependentUpon>CLMS.tt</DependentUpon>
-    </Compile>
     <Compile Include="tbl_BloodCountReports.cs">
       <DependentUpon>CLMS.tt</DependentUpon>
     </Compile>
@@ -117,6 +114,9 @@
       <DependentUpon>CLMS.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_UrineReports.cs">
+      <DependentUpon>CLMS.tt</DependentUpon>
+    </Compile>
+    <Compile Include="tbl_UserLoginDetails.cs">
       <DependentUpon>CLMS.tt</DependentUpon>
     </Compile>
     <Compile Include="tbl_VitalSignsReports.cs">
