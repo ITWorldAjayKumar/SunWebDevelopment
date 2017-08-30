@@ -20,6 +20,7 @@
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_UrineReports" Width="1.5" PointX="8.75" PointY="9.75" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" Width="1.5" PointX="11.75" PointY="0.75" />
         <EntityTypeShape EntityType="CLMS_DBModel.tbl_VitalSignsReports" Width="1.5" PointX="11.375" PointY="9.75" />
+        <EntityTypeShape EntityType="CLMS_DBModel.tblUserLoginDetail" Width="1.5" PointX="12.875" PointY="5.875" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

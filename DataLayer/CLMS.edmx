@@ -288,6 +288,17 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="tblUserLoginDetails">
+          <Key>
+            <PropertyRef Name="SysId" />
+          </Key>
+          <Property Name="SysId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+        </EntityType>
         <EntityContainer Name="CLMS_DBModelStoreContainer">
           <EntitySet Name="tbl_BloodCountReports" EntityType="Self.tbl_BloodCountReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_BoneProfileReports" EntityType="Self.tbl_BoneProfileReports" Schema="dbo" store:Type="Tables" />
@@ -303,6 +314,7 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <EntitySet Name="tbl_VitalSignsReports" EntityType="Self.tbl_VitalSignsReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tblUserLoginDetails" EntityType="Self.tblUserLoginDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="Self.tbl_PatientDetails_3Aug2017" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tbl_PatientDetails_3Aug2017].[ID] AS [ID], 
@@ -417,6 +429,7 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <EntitySet Name="tbl_UrineReports" EntityType="CLMS_DBModel.tbl_UrineReports" />
           <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" />
           <EntitySet Name="tbl_VitalSignsReports" EntityType="CLMS_DBModel.tbl_VitalSignsReports" />
+          <EntitySet Name="tblUserLoginDetails" EntityType="CLMS_DBModel.tblUserLoginDetail" />
         </EntityContainer>
         <EntityType Name="tbl_BloodCountReports">
           <Key>
@@ -621,6 +634,17 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedBy" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
           <Property Name="EditedDate" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
+        </EntityType>
+        <EntityType Name="tblUserLoginDetail">
+          <Key>
+            <PropertyRef Name="SysId" />
+          </Key>
+          <Property Name="SysId" Type="Guid" Nullable="false" />
+          <Property Name="UserID" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -915,6 +939,18 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
                 <ScalarProperty Name="TestDate" ColumnName="TestDate" />
                 <ScalarProperty Name="PatientID" ColumnName="PatientID" />
                 <ScalarProperty Name="VSR_TestReportID" ColumnName="VSR_TestReportID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tblUserLoginDetails">
+            <EntityTypeMapping TypeName="CLMS_DBModel.tblUserLoginDetail">
+              <MappingFragment StoreEntitySet="tblUserLoginDetails">
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="UserID" ColumnName="UserID" />
+                <ScalarProperty Name="SysId" ColumnName="SysId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

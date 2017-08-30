@@ -157,7 +157,7 @@ namespace DataLayer
                         tbl_FileUploadDetails _objP = new tbl_FileUploadDetails
                         {
                             FileUploadID = Guid.NewGuid(),
-                            PatientID = patientID,
+                            PatientID = _objSave.PatientID,
                             TestReportID = _objSave.TestReportID,
                             FileDispalyName = _objSave.FileDispalyName,
                             FilePath = _objSave.FilePath,

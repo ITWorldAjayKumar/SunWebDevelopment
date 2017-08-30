@@ -116,14 +116,18 @@
                                     <Columns>
                                         <asp:BoundField DataField="Name" HeaderText="Name" />
                                         <asp:BoundField DataField="Mobile" HeaderText="Mobile" />
-                                        <asp:BoundField DataField="Age" HeaderText="Age" />
-                                        <asp:BoundField DataField="Occupation" HeaderText="Occupation" />
                                         <asp:BoundField DataField="Address" HeaderText="Address" />
-                                        <asp:BoundField DataField="Gender" HeaderText="Gender" />
                                         <asp:TemplateField HeaderText="Edit">
                                             <ItemTemplate>
                                                 <asp:LinkButton ID="lnkEdit" runat="server" CssClass="btn btn-default" OnClientClick="ShowAddUpdatePatient();" CommandName="select"
                                                     CommandArgument='<%#Bind("ID") %>'><span aria-hidden="true" class="glyphicon glyphicon-edit"></span></asp:LinkButton>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                         <asp:TemplateField HeaderText="Report">
+                                            <ItemTemplate>
+                                                <asp:LinkButton ID="lnkaddVitalSign" runat="server" CssClass="btn btn-default" CommandName="Report"
+                                                    PostBackUrl='<%# String.Format("~/Patient/AddReports.aspx?PatientID={0}",Eval("id")) %>'>
+                                               <span aria-hidden="true" class="glyphicon glyphicon-edit"></span>&nbspAdd/Edit </asp:LinkButton>
                                             </ItemTemplate>
                                         </asp:TemplateField>
                                         <asp:TemplateField HeaderText="Vital Sign">

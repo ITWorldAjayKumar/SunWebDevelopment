@@ -28,7 +28,11 @@
     </asp:PlaceHolder>
     <webopt:BundleReference runat="server" Path="~/Content/css" />
     <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
-  
+    <style>
+        body {
+            background-image: url('../Images/looping-bg.jpg') !important;
+        }
+    </style>
     <script type="text/javascript">
         //$(document).ready(function () {
         //    $(".stars").hover(alert('Hi'));
@@ -193,7 +197,7 @@
                                 <li>
                                     <a href="../Patient/Report_PatientMgmt.aspx">Vital Sign</a>
                                 </li>
-                               <%-- <li>
+                                <%-- <li>
                                     <a href="../Patient/ReportsMgmt.aspx">Diabetes</a>
                                 </li>
                                 <li>
