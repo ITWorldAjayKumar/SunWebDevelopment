@@ -3,9 +3,9 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajax" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
-    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/jquery-ui.js" type="text/javascript"></script>
-    <link href="http://ajax.aspnetcdn.com/ajax/jquery.ui/1.8.9/themes/blitzer/jquery-ui.css" rel="stylesheet" type="text/css" />
+    <link href="../Content/jquery-ui.css" rel="stylesheet" />
+    <script src="../js/Jquery/jquery-1.12.4.js"></script>
+    <script src="../js/Jquery/jquery-ui.js"></script>
     <script>
         $(function () {
             $("#txtTestDate").datepicker({ dateFormat: 'M-dd-yy' });

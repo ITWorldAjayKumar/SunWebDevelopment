@@ -24,6 +24,8 @@
     <EntitySetMapping Name="tbl_PatientDetails">
       <EntityTypeMapping TypeName="CLMS_DBModel.tbl_PatientDetails">
         <MappingFragment StoreEntitySet="tbl_PatientDetails">
+          <ScalarProperty Name="DisplayPatientID" ColumnName="DisplayPatientID" />
+          <ScalarProperty Name="SysID" ColumnName="SysID" />
           <ScalarProperty Name="Address_3" ColumnName="Address_3" />
           <ScalarProperty Name="Address_2" ColumnName="Address_2" />
           <ScalarProperty Name="Address_1" ColumnName="Address_1" />
@@ -291,9 +293,11 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="tblUserLoginDetails">
-      <EntityTypeMapping TypeName="CLMS_DBModel.tblUserLoginDetail">
-        <MappingFragment StoreEntitySet="tblUserLoginDetails">
+    <EntitySetMapping Name="tbl_UserLoginDetails">
+      <EntityTypeMapping TypeName="CLMS_DBModel.tbl_UserLoginDetails">
+        <MappingFragment StoreEntitySet="tbl_UserLoginDetails">
+          <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+          <ScalarProperty Name="LastedLoginDate" ColumnName="LastedLoginDate" />
           <ScalarProperty Name="Password" ColumnName="Password" />
           <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
           <ScalarProperty Name="IsActive" ColumnName="IsActive" />

@@ -160,6 +160,8 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
+          <Property Name="SysID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DisplayPatientID" Type="nvarchar" MaxLength="9" StoreGeneratedPattern="Computed" />
           <Property Name="ID" Type="uniqueidentifier" Nullable="false" />
           <Property Name="PatientID" Type="nvarchar" MaxLength="50" />
           <Property Name="Name" Type="nvarchar" MaxLength="250" Nullable="false" />
@@ -237,6 +239,19 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
+        <EntityType Name="tbl_UserLoginDetails">
+          <Key>
+            <PropertyRef Name="SysId" />
+          </Key>
+          <Property Name="SysId" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
+          <Property Name="Password" Type="nvarchar(max)" />
+          <Property Name="LastedLoginDate" Type="datetime" />
+          <Property Name="SessionID" Type="nvarchar(max)" />
+        </EntityType>
         <EntityType Name="tbl_VitalSignsReports">
           <Key>
             <PropertyRef Name="VSR_TestReportID" />
@@ -288,17 +303,6 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedDate" Type="datetime" />
           <Property Name="IsActive" Type="bit" />
         </EntityType>
-        <EntityType Name="tblUserLoginDetails">
-          <Key>
-            <PropertyRef Name="SysId" />
-          </Key>
-          <Property Name="SysId" Type="uniqueidentifier" Nullable="false" />
-          <Property Name="UserID" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="Email" Type="nvarchar" MaxLength="250" Nullable="false" />
-          <Property Name="IsActive" Type="bit" />
-          <Property Name="CreatedOn" Type="datetime" Nullable="false" />
-          <Property Name="Password" Type="nvarchar(max)" />
-        </EntityType>
         <EntityContainer Name="CLMS_DBModelStoreContainer">
           <EntitySet Name="tbl_BloodCountReports" EntityType="Self.tbl_BloodCountReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_BoneProfileReports" EntityType="Self.tbl_BoneProfileReports" Schema="dbo" store:Type="Tables" />
@@ -311,10 +315,10 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <EntitySet Name="tbl_PatientDetails" EntityType="Self.tbl_PatientDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_ThyroidProfileReports" EntityType="Self.tbl_ThyroidProfileReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_UrineReports" EntityType="Self.tbl_UrineReports" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tbl_UserLoginDetails" EntityType="Self.tbl_UserLoginDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_VitalSignsReports" EntityType="Self.tbl_VitalSignsReports" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_VitalSingsDetails" EntityType="Self.tbl_VitalSingsDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_VitalSingsDetails_History" EntityType="Self.tbl_VitalSingsDetails_History" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="tblUserLoginDetails" EntityType="Self.tblUserLoginDetails" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="Self.tbl_PatientDetails_3Aug2017" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [tbl_PatientDetails_3Aug2017].[ID] AS [ID], 
@@ -378,6 +382,8 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="Address_1" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Address_2" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
           <Property Name="Address_3" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <Property Name="SysID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DisplayPatientID" Type="String" MaxLength="9" FixedLength="false" Unicode="true" annotation:StoreGeneratedPattern="Computed" />
         </EntityType>
         <EntityType Name="tbl_VitalSingsDetails">
           <Key>
@@ -429,7 +435,7 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <EntitySet Name="tbl_UrineReports" EntityType="CLMS_DBModel.tbl_UrineReports" />
           <EntitySet Name="tbl_PatientDetails_3Aug2017" EntityType="CLMS_DBModel.tbl_PatientDetails_3Aug2017" />
           <EntitySet Name="tbl_VitalSignsReports" EntityType="CLMS_DBModel.tbl_VitalSignsReports" />
-          <EntitySet Name="tblUserLoginDetails" EntityType="CLMS_DBModel.tblUserLoginDetail" />
+          <EntitySet Name="tbl_UserLoginDetails" EntityType="CLMS_DBModel.tbl_UserLoginDetails" />
         </EntityContainer>
         <EntityType Name="tbl_BloodCountReports">
           <Key>
@@ -635,7 +641,7 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="EditedDate" Type="DateTime" Precision="3" />
           <Property Name="IsActive" Type="Boolean" />
         </EntityType>
-        <EntityType Name="tblUserLoginDetail">
+        <EntityType Name="tbl_UserLoginDetails">
           <Key>
             <PropertyRef Name="SysId" />
           </Key>
@@ -645,6 +651,8 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <Property Name="IsActive" Type="Boolean" />
           <Property Name="CreatedOn" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Password" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="LastedLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="SessionID" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -675,6 +683,8 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
           <EntitySetMapping Name="tbl_PatientDetails">
             <EntityTypeMapping TypeName="CLMS_DBModel.tbl_PatientDetails">
               <MappingFragment StoreEntitySet="tbl_PatientDetails">
+                <ScalarProperty Name="DisplayPatientID" ColumnName="DisplayPatientID" />
+                <ScalarProperty Name="SysID" ColumnName="SysID" />
                 <ScalarProperty Name="Address_3" ColumnName="Address_3" />
                 <ScalarProperty Name="Address_2" ColumnName="Address_2" />
                 <ScalarProperty Name="Address_1" ColumnName="Address_1" />
@@ -942,9 +952,11 @@ warning 6002: The table/view 'CLMS_DB.dbo.tbl_PatientDetails_3Aug2017' does not 
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="tblUserLoginDetails">
-            <EntityTypeMapping TypeName="CLMS_DBModel.tblUserLoginDetail">
-              <MappingFragment StoreEntitySet="tblUserLoginDetails">
+          <EntitySetMapping Name="tbl_UserLoginDetails">
+            <EntityTypeMapping TypeName="CLMS_DBModel.tbl_UserLoginDetails">
+              <MappingFragment StoreEntitySet="tbl_UserLoginDetails">
+                <ScalarProperty Name="SessionID" ColumnName="SessionID" />
+                <ScalarProperty Name="LastedLoginDate" ColumnName="LastedLoginDate" />
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="CreatedOn" ColumnName="CreatedOn" />
                 <ScalarProperty Name="IsActive" ColumnName="IsActive" />
